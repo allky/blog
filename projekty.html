@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>projekty ♡</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
+  <style>
+    .filter-row {
+      padding: 16px 40px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      border-bottom: 1.5px solid var(--pink-light);
+    }
+
+    .filter-btn {
+      background: var(--pink-light);
+      border: 1px solid var(--pink-mid);
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 12px;
+      color: var(--text-light);
+      cursor: pointer;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--pink-accent);
+      border-color: var(--pink-accent);
+      color: var(--white);
+    }
+
+    .year-divider {
+      font-family: 'DM Serif Display', serif;
+      font-size: 14px;
+      font-style: italic;
+      color: var(--text-light);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--pink-light);
+      grid-column: 1 / -1;
+    }
+  </style>
+</head>
+<body>
+
+<div class="browser-frame">
+
+  <!-- Browser chrome -->
+  <div class="browser-chrome">
+    <div class="url-bar">🌸🌸🌸</div>
+  </div>
+
+  <!-- Hero mini -->
+  <div class="hero" style="padding-bottom: 20px;">
+    <div class="avatar-placeholder" style="width:60px; height:60px; font-size:22px;">🌸</div>
+    <div class="hero-info">
+      <h1>PROJECTS ♡</h1>
+      <p class="tagline">· all of the projects i worked on ·</p>
+    </div>
+    <div></div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="section-tabs">
+    <div class="section-tab">I. about me</div>
+    <div class="section-tab active">II. projects</div>
+    <div class="section-tab">III. contact</div>
+  </div>
+
+  <!-- Filters -->
+  <div class="filter-row">
+    <button class="filter-btn active">všetko</button>
+    <button class="filter-btn">dizajn</button>
+    <button class="filter-btn">web</button>
+    <button class="filter-btn">škola</button>
+    <button class="filter-btn">osobné</button>
+  </div>
+
+  <!-- All projects -->
+  <div class="projects-section">
+
+    <div class="projects-grid">
+      <div class="year-divider">✦ 2026</div>
+
+      <a href="projects/projekt-3.html" class="project-card">
+        <div class="project-thumb">
+          <img src="../images/hra.png" alt="screenshot projektu" />
+        </div>
+        <div class="project-body">
+          <h3>🎮 Multiplayer game</h3>
+          <p>A two-player game where one person spreads lies and the other fights back — and both of them learn something.</p>
+          <div class="project-meta">
+            <span class="project-tag">Game Development</span>
+            <span class="project-tag">UI/UX</span>
+            <span class="project-date">jun 2026</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="projects/projekt-1.html" class="project-card">
+        <div class="project-thumb">
+          <img src="../images/papko.png" alt="screenshot projektu" />
+        </div>
+        <div class="project-body">
+          <h3>🍳 PAPKAI - Smart cooking assistant</h3>
+          <p>An AI cooking assistant that helps users plan meals effortlessly using smart recommendations and ingredient recognition.</p>
+          <div class="project-meta">
+            <span class="project-tag">UI/UX</span>
+            <span class="project-tag">Prototyping</span>
+            <span class="project-date">may 2026</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="projects/projekt-2.html" class="project-card">
+        <div class="project-thumb">
+          <img src="../images/ecv.jpg" alt="ecv" />
+        </div>
+        <div class="project-body">
+          <h3>🚗 Vehicle Identification Number Management System</h3>
+          <p>A proposed redesign of Slovakia's vehicle license plate management system, focusing on full digitalization and
+          automation of processes.</p>
+          <div class="project-meta">
+            <span class="project-tag">System Architecture</span>
+            <span class="project-date">jan 2026</span>
+          </div>
+        </div>
+      </a>
+
+
+      <div class="year-divider">✦ 2025</div>
+
+      <a href="projects/projekt-4.html" class="project-card">
+        <div class="project-thumb">
+          <img src="../images/dashboard.png" alt="dashboard" />
+        </div>
+        <div class="project-body">
+          <h3>📊 EnergyDataHub - Dashboards</h3>
+          <p>A dashboard system that visualizes real-time Slovak electricity data using Raspberry Pi on a variety of displays, built for SEPS a.s. using
+          open-source technologies.</p>
+          <div class="project-meta">
+            <span class="project-tag">Data Visualization</span>
+            <span class="project-date">jun 2025</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="projects/projekt-5.html" class="project-card">
+        <div class="project-thumb">
+          <img src="../images/OZNAL_thumb.png" alt="oznal" />
+        </div>
+        <div class="project-body">
+          <h3>🩺 Multi-class disease classification based on symptoms</h3>
+          <p>Symptom-based disease prediction utilizing optimized Random Forest and XGBoost classification models.</p>
+          <div class="project-meta">
+            <span class="project-tag">Machine Learning</span>
+            <span class="project-date">may 2025</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="projects/projekt-6.html" class="project-card">
+        <div class="project-thumb">
+          <img src="../images/facerec.png" alt="facerec" />
+        </div>
+        <div class="project-body">
+          <h3>😩 NN - Face recognition</h3>
+          <p>Krátky popis — čo to je a čo si sa naučila.</p>
+          <div class="project-meta">
+            <span class="project-tag">Neural Networks</span>
+            <span class="project-date">may 2025</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="projects/projekt-6.html" class="project-card">
+        <div class="project-thumb">✍️</div>
+        <div class="project-body">
+          <h3>NN - animal classification</h3>
+          <p>Krátky popis — čo to je a čo si sa naučila.</p>
+          <div class="project-meta">
+            <span class="project-tag">Neural Networks</span>
+            <span class="project-date">may 2025</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="projects/projekt-6.html" class="project-card">
+        <div class="project-thumb">✍️</div>
+        <div class="project-body">
+          <h3>MLP - flat prices</h3>
+          <p>Krátky popis — čo to je a čo si sa naučila.</p>
+          <div class="project-meta">
+            <span class="project-tag">Neural Networks</span>
+            <span class="project-date">may 2025</span>
+          </div>
+        </div>
+      </a>
+
+      <div class="year-divider">✦ 2024</div>
+
+      <a href="projects/projekt-6.html" class="project-card">
+        <div class="project-thumb">✍️</div>
+        <div class="project-body">
+          <h3>MATHAI neuronka (MLP)</h3>
+          <p>Krátky popis — čo to je a čo si sa naučila.</p>
+          <div class="project-meta">
+            <span class="project-tag">Neural Networks</span>
+            <span class="project-date">dec 2024</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="projects/projekt-6.html" class="project-card">
+        <div class="project-thumb">✍️</div>
+        <div class="project-body">
+          <h3>VINF</h3>
+          <p>Krátky popis — čo to je a čo si sa naučila.</p>
+          <div class="project-meta">
+            <span class="project-tag">Scraper</span>
+            <span class="project-tag">Indexer</span>
+            <span class="project-tag">Searcher</span>
+            <span class="project-date">dec 2024</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="projects/projekt-6.html" class="project-card">
+        <div class="project-thumb">✍️</div>
+        <div class="project-body">
+          <h3>Bakalárka - komparatívna štúdia</h3>
+          <p>Krátky popis — čo to je a čo si sa naučila.</p>
+          <div class="project-meta">
+            <span class="project-tag">Comparative study</span>
+            <span class="project-tag">Prototyping</span>
+            <span class="project-date">dec 2024</span>
+          </div>
+        </div>
+      </a>
+
+
+    </div>
+  </div>
+
+  <div class="site-footer">
+    ♡ made with love &amp; too much coffee ♡
+  </div>
+
+</div>
+
+<script>
+  // Simple filter functionality
+  const btns = document.querySelectorAll('.filter-btn');
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      // Tu môžeš pridať filtrovanie kariet podľa data-category atribútu
+    });
+  });
+</script>
+
+</body>
+</html>

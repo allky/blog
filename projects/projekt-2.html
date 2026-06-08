@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="sk">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🚗 Vehicle Identification Number Management System</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
+</head>
+
+<body>
+
+  <div class="browser-frame">
+
+    <!-- Browser chrome -->
+    <div class="browser-chrome">
+      <div class="traffic-lights">
+        <span class="tl-red"></span>
+        <span class="tl-yellow"></span>
+        <span class="tl-green"></span>
+      </div>
+      <div class="url-bar">🌸🌸🌸</div>
+    </div>
+
+    <!-- Project detail -->
+    <div class="project-detail">
+
+      <a href="../projekty.html" class="back-link">← back to projects</a>
+
+      <h1>🚗 Vehicle Identification Number Management System</h1>
+
+      <div class="detail-meta">
+        <span class="tag">🏗️ System Architecture</span>
+        <span class="tag">📅 jan 2026</span>
+        <span class="tag">🏫 School Project</span>
+      </div>
+
+      <div class="detail-cover">
+        <div class="img-wrapper">
+          <img src="../images/ecv.jpg" alt="ecv" />
+        </div>
+      </div>
+
+      <div class="detail-body">
+
+        <h2>✨ ABOUT PROJECT</h2>
+        <p>
+          This project was developed as part of the AIS (Architecture of Information Systems) course during
+          my Master's studies at FIIT STU. <b class="bold-underline">There were three of us working on this project </b> - me and my classmates
+         <b class="bold-underline">Martin and Lenka ♡</b>.
+        </p>
+        <p>
+          The main goal of this project was to analyze and model both the <b class="bold-underline">AS-IS</b> and <b class="bold-underline">TO-BE</b> architecture of the vehicle license
+          plate (EČV) management system in Slovakia, with a particular focus on the <b class="bold-underline">transition</b> between the current and proposed
+          states. Since a similar system already exists, our objective was not to design a completely new solution, but rather to
+          identify its limitations and propose improvements that would increase efficiency, automation, and user convenience.
+        </p>
+
+        <p>
+          The resulting TO-BE architecture introduces a higher level of digitalization, reduces the need for manual administrative
+          procedures, and enables better integration with external registries and services.
+        </p>
+
+        <h2>✨ WHAT I DID</h2>
+        <p>
+          The project covered the full architecture lifecycle, from analyzing the current state to planning migration and
+          estimating costs.
+        </p>
+        <ul>
+          <li><strong>1. AS-IS / TO-BE Analysis</strong><br>
+            We identified key pain points of the existing system — manual processing, limited online services, poor UX — and defined
+            the target fully digitalized state.
+          </li>
+
+          <li><strong>2. ArchiMate Architecture Diagrams</strong><br>
+            We created multiple viewpoints including <b class="bold-underline">Organization, Motivation, Business Layer, Application Layer, Technology Layer, and
+            Implementation & Migration Viewpoint</b>.
+
+            <p>
+              The figures show organizational viewpoints—the first represents the AS-IS state, and the second represents the TO-BE
+              state.
+            </p>
+            <div class="detail-cover">
+              <div class="img-wrapper">
+                <img src="../images/organization_as-is.png" alt="AS-IS" />
+              </div>
+            </div>
+            <div class="detail-cover">
+              <div class="img-wrapper">
+                <img src="../images/organization_to-be.png" alt="TO-BE" />
+              </div>
+            </div>
+          </li>
+
+          <li><strong>3. Business Scenarios</strong><br>
+            We defined and described 5 key business processes: <b class="bold-underline">requesting a new/replacement plate, vehicle transfer, data audit,
+            identity verification, and online payments</b>.
+          </li>
+
+          <li><strong>4. GAP Analysis</strong><br>
+            We mapped the differences between the current and target state across 8 capability dimensions, identifying what needs to be
+            eliminated, improved, or built from scratch. We used <b class="bold-underline">GAP analysis matrix</b>.
+          </li>
+
+          <li><strong>5. Financial Analysis (FPA + COCOMO)</strong><br>
+            Estimated project scope using Function Point Analysis (AFP ≈ 240 FP) and calculated costs via COCOMO — approximately 2
+            385 000 €, ~13 people, ~12.66 months.
+
+            <div class="detail-cover">
+              <div class="img-wrapper">
+                <img src="../images/cocomo.png" alt="cocomo" />
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <h2>✨ WHAT DID I LEARN?</h2>
+        <p>
+          This project gave me a solid understanding of enterprise architecture methodologies, specifically ArchiMate and TOGAF
+          concepts. I learned how to think about systems not just as code, but as layered structures
+          connecting business goals, applications, and infrastructure. The GAP and financial analyses pushed me to evaluate design
+          decisions in a realistic, cost-aware way.
+        </p>
+
+        <h2>✨ DOCUMENTS</h2>
+        Click to view detailed PDF report of this project.
+
+        <div class="reports-grid">
+
+          <a class="report-btn" href="resources/AIS_dokumentacia.pdf" target="_blank">
+            <div class="report-emoji">📖</div>
+            <div class="report-content">
+              <div class="report-title">Report</div>
+              <div class="report-desc">
+                Detailed architecture documentation covering AS-IS/TO-BE analysis, ArchiMate viewpoints, GAP analysis, implementation
+                roadmap, and financial estimation — everything described on this page and more.
+              </div>
+            </div>
+          </a>
+
+        </div>
+
+        <h2>✨ TOOLS</h2>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px;">
+          <span class="tag">Enterprise Architect</span>
+          <span class="tag">ArchiMate</span>
+          <span class="tag">TOGAF</span>
+          <span class="tag">COCOMO</span>
+          <span class="tag">BPMN</span>
+          <span class="tag">FPA</span>
+          <!-- pridaj/uber podľa projektu -->
+        </div>
+
+      </div>
+    </div>
+
+    <div class="site-footer">
+      ♡ made with love &amp; too much coffee ♡
+    </div>
+
+  </div>
+
+</body>
+
+</html>

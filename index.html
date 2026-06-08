@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>môj blog ♡</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* little extras for the landing page */
+    .mood-row {
+      padding: 18px 40px;
+      display: flex;
+      gap: 28px;
+      border-bottom: 1.5px solid var(--pink-light);
+      background: var(--white);
+    }
+
+    .mood-box {
+      flex: 1;
+      background: var(--pink-light);
+      border: 1px solid var(--pink-mid);
+      border-radius: 12px;
+      padding: 12px 16px;
+    }
+
+    .mood-box .mood-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--rose);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .mood-box .mood-time {
+      font-size: 10px;
+      color: var(--text-light);
+      font-weight: 400;
+    }
+
+    .mood-box .mood-text {
+      font-size: 12px;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .mood-box .mood-actions {
+      font-size: 10px;
+      color: var(--text-light);
+      margin-top: 6px;
+    }
+
+    .playlist-strip {
+      padding: 16px 40px;
+      border-bottom: 1.5px solid var(--pink-light);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .playlist-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--rose);
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .playlist-songs {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .playlist-songs::-webkit-scrollbar { display: none; }
+
+    .song-chip {
+      background: var(--pink-light);
+      border: 1px solid var(--pink-mid);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 11px;
+      white-space: nowrap;
+      color: var(--text);
+    }
+  </style>
+</head>
+<body>
+
+<div class="browser-frame">
+
+  <!-- Browser chrome -->
+  <div class="browser-chrome">
+    <div class="traffic-lights">
+      <span class="tl-red"></span>
+      <span class="tl-yellow"></span>
+      <span class="tl-green"></span>
+    </div>
+    <div class="url-bar">moj-blog.github.io</div>
+    <nav class="nav-links">
+      <a href="index.html" class="active">o mne</a>
+      <a href="projekty.html">projekty</a>
+    </nav>
+  </div>
+
+  <!-- Hero / About Me -->
+  <div class="hero">
+    <div class="avatar-placeholder">🌸</div>
+
+    <div class="hero-info">
+      <h1>about me!</h1>
+      <p class="tagline">
+        <span>tvoje meno</span> alebo <span>prezývka</span><br>
+        študentka · tvorca · snívalka<br>
+        škola · mesto · rok štúdia
+      </p>
+      <div class="hero-tags">
+        <span class="tag">🎨 dizajn</span>
+        <span class="tag">💻 kódovanie</span>
+        <span class="tag">🌸 kawaii</span>
+        <span class="tag">☕ káva</span>
+        <span class="tag">📚 škola</span>
+      </div>
+    </div>
+
+    <div class="hero-socials">
+      <h3>socials</h3>
+      <ul>
+        <li><a href="#">GitHub</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Pinterest</a></li>
+        <li><a href="#">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Status bar -->
+  <div class="status-bar">
+    <div class="status-left">
+      <span>● profile info &nbsp; ≡</span>
+      <span>● status &nbsp; <strong class="status-dnd">DND</strong></span>
+    </div>
+    <div style="font-size:11px; color:var(--text-light);">
+      ♡ vitaj na mojom blogu ♡
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="section-tabs">
+    <div class="section-tab active">I. o mne</div>
+    <div class="section-tab">II. projekty</div>
+    <div class="section-tab">III. kontakt</div>
+  </div>
+
+  <!-- Playlist -->
+  <div class="playlist-strip">
+    <div class="playlist-label">▶ playlist</div>
+    <div class="playlist-songs">
+      <span class="song-chip">Doja Cat – Streets</span>
+      <span class="song-chip">The Weeknd – Save Your Tears</span>
+      <span class="song-chip">Stayc – ASAP</span>
+      <span class="song-chip">Vampire Weekend – Campus</span>
+      <span class="song-chip">Hollywood Ending – You</span>
+    </div>
+  </div>
+
+  <!-- Mood boxes -->
+  <div class="mood-row">
+    <div class="mood-box">
+      <div class="mood-label">
+        💗 feeling happy
+        <span class="mood-time">dnes</span>
+      </div>
+      <div class="mood-text">
+        kresba, hudba, boba, káva, estetické veci, škola keď ide dobre, objavovanie nových projektov
+      </div>
+      <div class="mood-actions">♡ like · comment</div>
+    </div>
+    <div class="mood-box">
+      <div class="mood-label">
+        🩶 feeling sad
+        <span class="mood-time">niekedy</span>
+      </div>
+      <div class="mood-text">
+        deadlines, prázdna káva, keď projekt nejde, monday morning energy, writer's block
+      </div>
+      <div class="mood-actions">♡ like · comment</div>
+    </div>
+  </div>
+
+  <!-- Projects preview -->
+  <div class="projects-section">
+    <h2>najnovšie projekty ♡</h2>
+    <p class="section-subtitle">ukážka toho, na čom som pracovala · <a href="projekty.html" style="color:var(--rose); text-decoration:none;">zobraziť všetky →</a></p>
+
+    <div class="projects-grid">
+
+      <a href="projects/projekt-1.html" class="project-card">
+        <div class="project-thumb">🎨<span class="thumb-label">dizajn</span></div>
+        <div class="project-body">
+          <h3>🍳 PAPKAI - Smart cooking assistant</h3>
+          <p>Krátky popis — čo to je, čo si sa naučila, aké nástroje si použila.</p>
+          <div class="project-meta">
+            <span class="project-tag">UI/UX</span>
+            <span class="project-date">jan 2025</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="projects/projekt-2.html" class="project-card">
+        <div class="project-thumb">💻<span class="thumb-label">web</span></div>
+        <div class="project-body">
+          <h3>Názov projektu 2</h3>
+          <p>Krátky popis — čo to je, čo si sa naučila, aké nástroje si použila.</p>
+          <div class="project-meta">
+            <span class="project-tag">HTML/CSS</span>
+            <span class="project-date">feb 2025</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="projekty.html" class="project-card" style="background:var(--pink-light); border-style:dashed; display:flex; align-items:center; justify-content:center; min-height:160px; text-align:center;">
+        <div style="color:var(--text-light); font-size:13px;">
+          <div style="font-size:28px; margin-bottom:8px;">✦</div>
+          všetky projekty →
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <div class="site-footer">
+    ♡ made with love &amp; too much coffee ♡
+  </div>
+
+</div>
+
+</body>
+</html>

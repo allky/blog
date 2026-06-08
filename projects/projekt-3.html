@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="sk">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🎮 Multiplayer game</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
+</head>
+
+<body>
+
+    <div class="browser-frame">
+
+        <!-- Browser chrome -->
+        <div class="browser-chrome">
+            <div class="url-bar">🌸🌸🌸</div>
+        </div>
+
+        <!-- Project detail -->
+        <div class="project-detail">
+
+            <a href="../projekty.html" class="back-link">← back to projects</a>
+
+            <h1>🎮 Multiplayer game</h1>
+
+            <div class="detail-meta">
+                <span class="tag">🎨 UI/UX</span>
+                <span class="tag">🎮 Game Development</span>
+                <span class="tag">🖌️ Digital Art</span>
+                <span class="tag">📅 may 2026</span>
+                <span class="tag">🏫 School Project</span>
+            </div>
+
+            <div class="detail-cover">
+                <div class="img-wrapper">
+                    <img src="../images/hra.png" alt="screenshot projektu" />
+                </div>
+            </div>
+
+            <div class="detail-body">
+
+                <h2>✨ ABOUT PROJECT</h2>
+                <p>
+                    This project was developed as part of my Master's thesis at FIIT STU, and later extended into a <b class="bold-underline">published research study</b>. 
+                    I designed and implemented a two-player educational game aimed at building
+                    resilience against disinformation, specifically in the context of flu vaccination. 
+                </p>
+                <p>
+                    The game, set in a fictional village, pits two players against each other with opposing goals: one takes the role of a
+                    <b class="bold-underline">Truth Defender, using prebunking and debunking</b> strategies, while the other plays as a <b class="bold-underline">Disinformer, applying manipulation
+                    techniques from the FLICC taxonomy</b>. <b class="bold-underline">Three AI-powered NPC villagers</b> serve as the "battleground" — each with their own
+                    personality, emotional state, and vaccination belief score that shifts in real time based on player actions. The player who convinces more NPCs to join their side wins.
+                </p>
+
+                <p>
+                    Based on this project, a <b class="bold-underline">Q2-quality</b> article is currently being prepared as well.
+                </p>
+
+
+                <h2>✨ WHAT I DID</h2>
+                <p>
+                    I worked on this project end-to-end, from concept and game design through implementation (iterative
+                    prototyping), user research, and statistical
+                    analysis.
+                </p>
+                <ul>
+                    <li><strong>1. Game Design & Mechanics</strong><br>
+                        The game is a synchronous two-player experience set in a fictional village
+                        preparing for a flu vaccination campaign. Both players connect to the same
+                        game session and take opposing roles: the <strong>Defender</strong>, whose
+                        goal is to <b class="bold-underline">maximize</b> the vaccination belief scores of three
+                        NPC villagers, and the <strong>Disinformer</strong>, whose goal is to
+                        <b class="bold-underline">minimize</b> them. Players take turns and each turn consists of
+                        choosing a villager and executing a
+                        persuasion strategy. The game runs for 5 scored rounds; whoever has
+                        convinced more villagers to their side at the end wins.
+                        <p>
+                            Each NPC has a belief score and a knowledge pool containing both accurate and inaccurate
+                            information, all of which the
+                            NPC considers to be true. At the start, every NPC has a belief score of 50, and their
+                            knowledge pool typically includes
+                            one accurate piece of information and one piece of misinformation.
+                        </p>
+                        <p>
+                            The image shows two versions of the game—one for each player. While one player is playing,
+                            the other waits for their
+                            turn. When the turn ends, it switches to the other player.
+                        </p>
+                
+                        <div class="detail-cover">
+                            <div class="img-wrapper">
+                                <img src="../images/game_scene.png" alt="game_scene" />
+                            </div>
+                        </div>
+                
+                    <li><strong>2. Strategies & How Gameplay Feels</strong><br>
+                        The gameplay feels closest to a <b class="bold-underline">visual novel meets a quiz</b>.
+                        Each turn, the active player picks NPC and a strategy and then works through a
+                        sequence of 4–5 steps, each presenting a conversation choice. Some steps are
+                        <strong>critical</strong> (marked with a red exclamation icon) where a
+                        wrong answer immediately ends the turn and shifts the NPC's belief score
+                        against you. Other steps are non-critical: mistakes give feedback but belief score of NPC won't
+                        be changed. This two-tier system keeps the game challenging without being
+                        frustrating.<br><br>
+                        The <strong>Defender</strong> chooses between two mechanics:
+                        <ul>
+                            <li><b class="bold-underline">Prebunking (gamified procedure)</b></li>
+                            <div class="detail-cover">
+                                <div class="img-wrapper">
+                                    <img src="../images/prebunking.png" alt="prebunking" />
+                                </div>
+                            </div>
+                            <li><b class="bold-underline"></b>Debunking (gamified procedure)</b></li>
+                            <div class="detail-cover">
+                                <div class="img-wrapper">
+                                    <img src="../images/debunking.png" alt="debunking" />
+                                </div>
+                            </div>
+                        </ul>
+                        The <strong>Disinformer</strong> picks one of five <b class="bold-underline">FLICC</b>
+                        strategies (Fake
+                        experts, Logical fallacies, Impossible expectations, Cherry picking,
+                        Conspiracy theories) and executes a 4-step flow to plant a disinformation
+                        claim into the NPC's knowledge base. Each FLICC strategy can only be used
+                        twice per game, forcing the Disinformer to try other options.
+                        <div class="detail-cover">
+                            <div class="img-wrapper">
+                                <img src="../images/flicc.png" alt="flicc" />
+                            </div>
+                        </div>
+                    </li>
+                
+                    <li><strong>3. Prototyping & Iteration</strong><br>
+                        The design went through several rounds of iteration before reaching its
+                        final form. It started in <strong>Figma</strong>, where I mapped out the
+                        full gameplay flow, screen layouts, and step logic for each strategy. After
+                        a few rounds of feedback on the wireframes, I moved to a
+                        <strong>software prototype</strong> of the core mechanics — at this stage
+                        the focus was purely on whether the step logic felt right, not on visuals.<br><br>
+                        From there, multiple rounds of playtesting followed. The biggest change was
+                        simplifying the game significantly: the original design had <strong>10
+                            scored rounds</strong>, but pilot testing showed sessions ran close to 30
+                        minutes, which was too long for the study context. I reduced it to
+                        <strong>5 scored rounds + 2 tutorial rounds</strong>. The error system was
+                        also reworked — early versions penalized all mistakes equally, which felt
+                        punitive; splitting steps into critical and non-critical made the experience
+                        much more balanced. Several smaller mechanics were cut or simplified along
+                        the way whenever they added complexity without adding learning value.
+                    </li>
+                
+                    <li><strong>4. NPC Persona System</strong><br>
+                        I created three NPC personas (Mia, Ana, Joe) using Big Five personality profiling (BFI-2-XS) and
+                        Ekman emotion modelling.
+                        Each persona has a stable identity, dynamic emotional state, and a mutable knowledge base that
+                        evolves during gameplay.
+                        <div class="detail-cover">
+                            <div class="img-wrapper">
+                                <img src="../images/persona.png" alt="persona" />
+                            </div>
+                        </div>
+                    </li>
+                
+                    <li><strong>5. AI Integration</strong><br>
+                        I integrated GPT-4o via the OpenAI API to generate real-time, in-character NPC dialogue.
+                        Designed the prompt engineering
+                        pipeline including structured JSON output constraints, personality encoding in expanded BFI-2
+                        format, and conversation
+                        history management.
+                
+                    </li>
+                
+                    <li><strong>6. Technical Implementation</strong><br>
+                        I built the full multiplayer system in Unity using Netcode for GameObjects (NGO), with a Python
+                        REST backend for AI
+                        requests and database logging, and a PostgreSQL database for granular game event storage.
+                        <div class="detail-cover">
+                            <div class="img-wrapper">
+                                <img src="../images/architektura.png" alt="architektura" />
+                            </div>
+                        </div>
+                    </li>
+                
+                    <li><strong>7. Experimental Study</strong><br>
+                        I designed and ran a remote moderated controlled experiment with 60 participants, comparing the
+                        game against a text-based
+                        control group. Developed all measurement instruments (pre-test, post-test, delayed post-test),
+                        conducted statistical
+                        analysis in Python, and wrote up the results for publication.
+                    </li>
+                
+                    <li><strong>BONUS: NPC sprites</strong><br>
+                        <p>
+                            As part of the game, we created three personas representing individual non-player characters
+                            (NPCs). For each of them,
+                            we needed to design several facial expressions to make conversations with the characters
+                            more fluid and believable. When
+                            designing the emotions, we drew on Ekman’s model of basic emotions.
+                        </p>
+                        <p>
+                            Most of the graphic assets (UI, characters) were created by us specifically for this game
+                            using <b class="bold-underline">Aseprite</b>, a program that
+                            allows for the creation of pixel art.
+                            For each character, we created several facial expressions representing different moods. A
+                            complete overview of the
+                            expressions for all NPCs is shown in the images below.
+                        </p>
+                        <div class="detail-cover">
+                            <div class="img-wrapper">
+                                <img src="../images/ana.png" alt="ana" />
+                            </div>
+                        </div>
+                        <div class="detail-cover">
+                            <div class="img-wrapper">
+                                <img src="../images/mia.png" alt="mia" />
+                            </div>
+                        </div>
+                        <div class="detail-cover">
+                            <div class="img-wrapper">
+                                <img src="../images/joe.png" alt="joe" />
+                            </div>
+                        </div>
+                
+                        <p>
+                            We also designed the NPC sprites that appeared on the map.
+                        <div class="detail-cover">
+                            <div class="img-wrapper">
+                                <img src="../images/postavicky.png" alt="postavicky" />
+                            </div>
+                        </div>
+                        </p>
+                
+                    </li>
+                
+                
+                </ul>
+
+                <h2>✨ SHOWCASE</h2>
+                <p>
+                    The video presents the main features of the prototype: SMART sorting, photo-based ingredient
+                    recognition, and meal
+                    plan generation.
+                </p>
+                <div class="detail-cover">
+                    <video src="../images/Magyarova_obhajoba.mp4" controls></video>
+                </div>
+
+                <h2>✨ WHAT DID I LEARN?</h2>
+                <p>
+                    This project taught me how much the gap between "designed" and "experienced" can surprise you — things that seemed
+                    intuitive in design (like reading NPC dialogue) turned out to need explicit enforcement in implementation. I learned how
+                    to balance educational depth with playability, how to build believable AI characters from scratch, and how to design a
+                    study rigorous enough to produce publishable results.
+                </p>
+                <p>
+                    If I were to revisit it, I would add a minimum NPC text display time from day one, and design the delayed retention test
+                    to be harder. The most rewarding part was seeing that the game actually worked — players genuinely learned more than
+                    readers did.
+                </p>
+
+                <h2>✨ DOCUMENTS</h2>
+                Click to view detailed PDF report of this project.
+
+                <div class="reports-grid">
+                    <a class="report-btn" href="resources/DP.pdf" target="_blank">
+                        <div class="report-emoji">📖</div>
+                        <div class="report-content">
+                            <div class="report-title">Master's thesis document</div>
+                            <div class="report-desc">
+                                Theoretical and psychological foundations, solution design, implementation, study procedure, evaluation, and more.
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <h2>✨ TOOLS</h2>
+                <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px;">
+                    <span class="tag">Unity</span>
+                    <span class="tag">C#</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">PostgreSQL</span>
+                    <span class="tag">OpenAI API</span>
+                    <span class="tag">Jupyter Notebook</span>
+                    <span class="tag">Figma</span>
+                </div>
+
+                <div
+                    style="margin-top: 32px; padding: 16px; background: var(--pink-light); border-radius: 12px; border: 1px solid var(--pink-mid);">
+                    <div style="font-size: 12px; color: var(--text-light); margin-bottom: 8px; font-weight: 700;">🔗
+                        LINKS</div>
+                    <a href="https://github.com/xhusarova/PMNIS_projekt" target="_blank" rel="noopener noreferrer"
+                        style="color: var(--rose); font-size: 13px; display:block; margin-bottom:6px;">→ GitHub
+                        repository</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="site-footer">
+            ♡ made with love &amp; too much coffee ♡
+        </div>
+
+    </div>
+
+</body>
+
+</html>

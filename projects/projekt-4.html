@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="sk">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>📊 EnergyDataHub - Dashboards</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
+</head>
+
+<body>
+
+    <div class="browser-frame">
+
+        <!-- Browser chrome -->
+        <div class="browser-chrome">
+            <div class="url-bar">🌸🌸🌸</div>
+        </div>
+
+        <!-- Project detail -->
+        <div class="project-detail">
+
+            <a href="../projekty.html" class="back-link">← back to projects</a>
+
+            <h1>📊 EnergyDataHub - Dashboards</h1>
+
+            <div class="detail-meta">
+                <span class="tag">🎨 UI/UX</span>
+                <span class="tag">🎮 Game Development</span>
+                <span class="tag">🖌️ Digital Art</span>
+                <span class="tag">📅 may 2026</span>
+                <span class="tag">🏫 School Project</span>
+            </div>
+
+            <div class="detail-cover">
+                <div class="img-wrapper">
+                    <img src="../images/dashboard.png" alt="dashboard" />
+                </div>
+            </div>
+
+            <div class="detail-body">
+
+                <h2>✨ ABOUT PROJECT</h2>
+                <p>
+
+                    This project was developed as a team project during my Master's studies at FIIT STU, in collaboration with <b class="bold-underline">SEPS, a.s.</b>
+                    (Slovak electricity transmission system operator). I worked on the project as a team of six with my classmates <b class="bold-underline">Juraj,
+                    Lenka, Patrik, Michal, and Martin ♡</b>.
+                </p>
+                <p>
+                    The goal was to design and implement <b class="bold-underline">EnergyDataHub</b> — a dashboard system for visualizing real-time and historical
+                    electricity data in Slovakia. The dashboards run on Raspberry Pi devices connected to the SEPS internal network and
+                    display live energy metrics such as cross-border power transfers, generation by source, and system load. All of the data we used and are presented here, is <b class="bold-underline">publicly available</b>.
+                </p>
+
+                <h2>✨ WHAT WE DID</h2>
+                <p>
+                    The project covered the full stack — from data pipeline design to frontend visualization and physical device
+                    deployment.
+                </p>
+                <ul>
+                    <li><strong>1. Data pipeline</strong><br>
+                        Built an automated data ingestion system with two cron jobs running in Docker: an SFTP connector (every 3
+                        minutes) and a
+                        DAMAS scraper (every hour). Both always sync from the last known database record, so no data is lost after
+                        outages.
+                
+                    <li><strong>2. Database</strong><br>
+                        Used TimescaleDB (PostgreSQL extension) for time-series data storage with configurable archival depth and
+                        automatic
+                        deletion of expired records.
+                    </li>
+                
+                    <li><strong>3. Dashboard</strong><br>
+                        Built in Grafana with two operating modes: Kiosk mode (auto-cycling dashboards, no user input needed) and
+                        Presentation
+                        mode (manual navigation via IR remote control using FLIRC).
+                    </li>
+                
+                    <li><strong>4. Map visualization</strong><br>
+                        Custom React application displaying real-time cross-border power flows on an interactive SVG map of Slovakia.
+                    </li>
+                
+                    <li><strong>5. Documentation</strong><br>
+                        Wrote analyses, installation guides, user manuals, and acceptance testing reports.
+                    </li>
+
+                    <div class="detail-cover">
+                        <div class="img-wrapper">
+                            <img src="../images/arch.png" alt="architektura" />
+                        </div>
+                    </div>
+
+                    <div class="detail-cover">
+                        <video autoplay loop muted playsinline src="../images/seps.mp4" type="video/mp4"></video>
+                    </div>
+                
+                </ul>
+
+
+                <h2>✨ WHAT DID I LEARN?</h2>
+                <p>
+                    This was my first project working directly with a real corporate client and real operational data. I learned how
+                    different the constraints are when you're building for an internal enterprise environment — reliability and fault
+                    tolerance matter a lot more than in a student project. The most interesting challenge was making the data pipeline
+                    robust enough that a network outage wouldn't cause gaps in the historical record.
+                </p>
+                <p>
+                    If I were to revisit it, I'd spend more time on the dashboard UX — Grafana gives you a lot of power, but making it look
+                    polished takes deliberate effort.
+                </p>
+
+                <h2>✨ DOCUMENTS</h2>
+                Click to view PDF presentation presented to stakeholder.
+
+                <div class="reports-grid">
+                    <a class="report-btn" href="resources/SEPS_presentation.pdf" target="_blank">
+                        <div class="report-emoji">📖</div>
+                        <div class="report-content">
+                            <div class="report-title">Official presentation</div>
+                            <div class="report-desc">
+                                A team project presentation covering the goals, requirements, dashboard modes, system architecture, data pipeline, and
+                                delivered deliverables for EnergyDataHub.
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <h2>✨ TOOLS</h2>
+                <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px;">
+                    <span class="tag">Grafana</span>
+                    <span class="tag">TimescaleDB</span>
+                    <span class="tag">Docker</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">Raspberry Pi</span>
+                    <span class="tag">FLIRC</span>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="site-footer">
+            ♡ made with love &amp; too much coffee ♡
+        </div>
+
+    </div>
+
+</body>
+
+</html>

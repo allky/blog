@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="sk">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🩺 Multi-class disease classification based on symptoms</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
+</head>
+
+<body>
+
+    <div class="browser-frame">
+
+        <!-- Browser chrome -->
+        <div class="browser-chrome">
+            <div class="url-bar">🌸🌸🌸</div>
+        </div>
+
+        <!-- Project detail -->
+        <div class="project-detail">
+
+            <a href="../projekty.html" class="back-link">← back to projects</a>
+
+            <h1>🩺 Multi-class disease classification based on symptoms</h1>
+
+            <div class="detail-meta">
+                <span class="tag">📠 Machine Learning</span>
+                <span class="tag">📅 may 2025</span>
+                <span class="tag">🏫 School Project</span>
+            </div>
+
+            <div class="detail-cover">
+                <div class="img-wrapper">
+                    <img src="../images/OZNAL_thumb.png" alt="oznal" />
+                </div>
+            </div>
+
+            <div class="detail-body">
+
+                <h2>✨ ABOUT PROJECT</h2>
+                <p>
+                    This project was developed as part of the <b class="bold-underline">OZNAL (Knowledge Discovery)</b> course during
+                    my studies at FIIT STU. I worked on the project as a pair with my classmate <b class="bold-underline">Lenka ♡</b>.
+                </p>
+                <p>
+                    The goal of the project was to develop a <b class="bold-underline">multi-class classification</b> system capable of
+                    diagnosing common diseases based
+                    on patient symptoms. Our solution was implemented as an interactive <b class="bold-underline">Shiny application</b>
+                    in R, leveraging machine learning
+                    techniques to distinguish between eight different medical conditions: Asthma, Dengue, Malaria, Common Cold, Cough,
+                    Body Ache, Runny Nose, and Normal Fever.
+                </p>
+                <p>
+                    The project evaluates whether a controlled set of basic symptoms - such as Fever, Headache, Cough, Fatigue, and Body
+                    Pain - is sufficient to accurately predict and distinguish between overlapping diagnoses in a clinical context.
+                </p>
+
+                <h2>✨ WHAT WE DID</h2>
+                <p>
+                    I worked on the project across the entire machine learning workflow, from initial data exploration and literature review
+                    to model tuning and evaluation.
+                </p>
+                <ul>
+                    <li><strong>1. Technical Literature & Research</strong><br>
+                        We conducted research on state-of-the-art methods for <b class="bold-underline">multiclass classification</b> in
+                        healthcare, analyzing papers focused on disease prediction, lung cancer classification, and gestational weight gain.
+                        Based on this, we decided to compare a baseline <b class="bold-underline">Random Forest</b> model with <b
+                            class="bold-underline">XGBoost</b>.
+                    </li>
+                    
+                    <li><strong>2. Exploratory Data Analysis (EDA)</strong><br>
+                        We analyzed a dataset of <b class="bold-underline">5,000 records</b> to check distributions and class balances. We
+                        <b class="bold-underline">scaled features</b> (transforming Fever to match the 0-10 scale of other symptoms),
+                        uncovered clinical correlations through <b class="bold-underline">boxplots</b>, and evaluated multicollinearity
+                        using <b class="bold-underline">correlation matrices</b>.
+                    </li>
+                    
+                    <li><strong>3. Data Preprocessing & Power Analysis</strong><br>
+                        We handled the right-skewed distribution of the symptom data by applying a log transformation <code>log1p(x)</code>.
+                        Performed a <b class="bold-underline">power analysis</b> confirming that our balanced dataset (<b
+                            class="bold-underline">625 samples per disease</b>) heavily exceeded the standard guidelines for statistical
+                        reliability.
+                    </li>
+                    
+                    <li><strong>4. Requirements Analysis & Model Selection</strong><br>
+                        Created a comprehensive <b class="bold-underline">comparison matrix</b> evaluating Logistic Regression, SVM, and
+                        Random Forest against our data characteristics. We selected <b class="bold-underline">Random Forest</b> for its
+                        robustness against multicollinearity and ability to capture non-linear, <b class="bold-underline">overlapping
+                            symptom patterns</b> without strict normality assumptions.
+                    </li>
+                    
+                    <li><strong>5. Model Training & Hyperparameter Tuning</strong><br>
+                        Implemented <b class="bold-underline">stratified sampling</b> for an <b class="bold-underline">80/20 train/test
+                            split</b>. Conducted a comprehensive <b class="bold-underline">grid search</b> to optimize the Random Forest
+                        parameters (<code>mtry</code>, <code>ntree</code>, <code>nodesize</code>, <code>maxnodes</code>) using the <b
+                            class="bold-underline">Macro F1 Score</b> as the primary metric to ensure balanced class performance.
+                    </li>
+                    
+                    <li><strong>6. Threshold Optimization & Evaluation</strong><br>
+                        Evaluated both Random Forest and XGBoost using <b class="bold-underline">confusion matrices</b> and multiclass <b
+                            class="bold-underline">ROC/AUC curves</b>. To address misclassifications caused by overlapping respiratory
+                        symptoms, we implemented class-specific <b class="bold-underline">probability threshold tuning</b> to optimize the
+                        balance between sensitivity and precision.
+                    </li>
+
+                </ul>
+
+                <h2>✨ SHOWCASE</h2>
+                <p>
+                    The video presents a walkthrough of the entire application. It showcases how
+                    data is processed, how the features are analyzed, and how the machine learning models generate predictions in real
+                    time. Additionally, the visualization presents the performance comparison between our models, displaying the confusion
+                    matrices and ROC curves for both the baseline Random Forest and XGBoost variations.
+                </p>
+                <div class="detail-cover">
+                    <video src="../images/OZNAL_video.mp4" controls></video>
+                </div>
+
+                <p>
+                    <b class="bold-underline">If you want to test the application yourself and explore its features firsthand, you can find the live link and
+                    interactive demo in the Links section at the bottom of this page.</b>
+                </p>
+
+                <h2>✨ WHAT DID I LEARN?</h2>
+                <p>
+                    This project gave me hands-on experience with the complete predictive modeling pipeline, highlighting that machine
+                    learning is as much about data understanding as it is about algorithms. I learned how to deal with non-linear class
+                    boundaries and how to critically evaluate models beyond simple accuracy.
+                </p>
+                <p>
+                    The most valuable takeaway was understanding the real-world trade-offs in model evaluation. While the untuned Random
+                    Forest achieved the highest overall accuracy (93%), optimizing decision thresholds proved essential for shifting the
+                    balance between false positives and false negatives—a critical requirement in medical diagnostics where missing a
+                    condition can have severe consequences.
+                </p>
+
+                <h2>✨ DOCUMENTS</h2>
+                Click to view a PDF summary of this project.
+
+                <div class="reports-grid">
+
+                    <a class="report-btn" href="resources/Magyarova_Husarova_one_pager_summary.pdf" target="_blank">
+                        <div class="report-emoji">📖</div>
+                        <div class="report-content">
+                            <div class="report-title">One pager summary</div>
+                            <div class="report-desc">
+                                A short summary of what we did. We explain it in a way that’s easy to understand for people who aren’t familiar with machine learning.
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+
+                <h2>✨ TOOLS</h2>
+                <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px;">
+                    <span class="tag">R</span>
+                    <span class="tag">Shiny</span>
+                    <span class="tag">Random Forest</span>
+                    <span class="tag">XGBoost</span>
+
+                    <!-- pridaj/uber podľa projektu -->
+                </div>
+
+                <div
+                    style="margin-top: 32px; padding: 16px; background: var(--pink-light); border-radius: 12px; border: 1px solid var(--pink-mid);">
+                    <div style="font-size: 12px; color: var(--text-light); margin-bottom: 8px; font-weight: 700;">🔗
+                        LINKS</div>
+                    <a href="https://github.com/xhusarova/PMNIS_projekt" target="_blank" rel="noopener noreferrer"
+                        style="color: var(--rose); font-size: 13px; display:block; margin-bottom:6px;">→ GitHub
+                        repository</a>
+
+                        <a href="https://allky.shinyapps.io/oznal_project/" target="_blank" rel="noopener noreferrer"
+                            style="color: var(--rose); font-size: 13px; display:block; margin-bottom:6px;">→ Live Application Demo</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="site-footer">
+            ♡ made with love &amp; too much coffee ♡
+        </div>
+
+    </div>
+
+</body>
+
+</html>
