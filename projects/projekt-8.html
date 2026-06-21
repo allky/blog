@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="sk">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🏠 House Price Prediction with MLP</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
+</head>
+
+<body>
+
+    <div class="browser-frame">
+
+        <!-- Browser chrome -->
+        <div class="browser-chrome">
+            <div class="url-bar">🌸🌸🌸</div>
+        </div>
+
+        <!-- Project detail -->
+        <div class="project-detail">
+
+            <a href="../projekty.html" class="back-link">← back to projects</a>
+
+            <h1>🏠 House Price Prediction with MLP</h1>
+
+            <div class="detail-meta">
+                <span class="tag">🧬 Deep learning</span>
+                <span class="tag">📅 March 2025</span>
+                <span class="tag">🏫 School Project</span>
+            </div>
+
+            <div class="detail-cover">
+                <div class="img-wrapper">
+                    <img src="../images/image5.jpg" alt="house" />
+                </div>
+            </div>
+
+            <div class="detail-body">
+
+                <h2>✨ ABOUT PROJECT</h2>
+                <p>
+                    This project was developed as part of the <b class="bold-underline">Neural Networks</b> course during
+                    my studies at FIIT STU. I worked on it as a team with my classmates <b class="bold-underline">Lenka & Martin ♡</b>.
+                </p>
+                <p>
+                    The goal of the project was to solve a <b class="bold-underline">regression problem</b> — predicting
+                    <b class="bold-underline">California house prices</b> using a <b class="bold-underline">Multi-Layer Perceptron (MLP)</b>
+                    trained with the <b class="bold-underline">Adam optimizer</b>. The dataset contained ~20,000 records with
+                    9 features including median income, housing age, location coordinates, and household statistics.
+                </p>
+                <p>
+                    A key part of the project was an extensive <b class="bold-underline">hyperparameter study</b> — experimenting
+                    with different activation functions, dropout rates, batch sizes, learning rates, and hidden layer configurations —
+                    as well as a <b class="bold-underline">comparison of Adam against other state-of-the-art optimizers</b>
+                    (RMSProp, SGD, AdaGrad, NAdamW), validated against findings from the original
+                    <b class="bold-underline"><a href="https://arxiv.org/abs/1412.6980" target="_blank" rel="noopener noreferrer" style="color: var(--rose); text-decoration: underline; font-weight: bold;">Adam paper ↗</a></b>.
+                </p>
+
+
+                <h2>✨ WHAT WE DID</h2>
+                <p>
+                    I participated across the full pipeline — from data exploration and preprocessing to model training,
+                    hyperparameter sweeps, and final evaluation.
+                </p>
+                <ul>
+                    <li><strong>1. Dataset & EDA</strong><br>
+                        We worked with the <b class="bold-underline">California Housing dataset</b> (~20,640 samples, 9 features).
+                        We checked for null values, analyzed feature distributions, and identified the need for
+                        <b class="bold-underline">outlier removal</b> and <b class="bold-underline">data transformation</b>.
+                        After preprocessing, the dataset was reduced to <b class="bold-underline">17,621 samples</b>.
+                        We also generated a <b class="bold-underline">correlation heatmap</b> to assess which features
+                        were most predictive of the target variable.
+
+                        <!-- OBRAZOK: correlation heatmap -->
+                        <div class="img-wrapper">
+                            <img src="../images/nn1_heatmap.png" alt="correlation heatmap" />
+                        </div>
+                    </li>
+
+                    <li><strong>2. Preprocessing</strong><br>
+                        We removed outliers, applied <b class="bold-underline">feature scaling and transformation</b>,
+                        and also <b class="bold-underline">scaled the target variable</b> to improve model stability —
+                        meaning predictions had to be reverse-transformed back to the original scale.
+                        We evaluated multiple <b class="bold-underline">feature selection techniques</b>, but since each
+                        gave different results, we kept all <b class="bold-underline">9 features</b> as predictors.
+                        The dataset was split <b class="bold-underline">80/10/10</b> into training, validation, and test sets.
+                    </li>
+
+                    <li><strong>3. Model Architecture & Training</strong><br>
+                        We built an <b class="bold-underline">MLP</b> with configurable hidden layers, activation functions,
+                        batch normalization, and optional dropout. Our best-performing configuration used
+                        <b class="bold-underline">hidden layers [128, 64, 32]</b>, <b class="bold-underline">ReLU activation</b>,
+                        <b class="bold-underline">batch size 1000</b>, <b class="bold-underline">learning rate 0.001</b>,
+                        and the <b class="bold-underline">Adam optimizer</b>. We used
+                        <b class="bold-underline">MSE as the loss function</b> and evaluated with MSE, MAE, and RMSE.
+                        <b class="bold-underline">Early stopping</b> was implemented to prevent overfitting.
+
+                        <br><br>
+                        <div class="img-wrapper">
+                            <img src="../images/house_prediction.png" alt="house prediction" />
+                        </div>
+                        <br>
+
+
+                    <li><strong>4. Hyperparameter Experiments</strong><br>
+                        We ran systematic <b class="bold-underline">grid search sweeps via Weights & Biases</b> across
+                        8 sweep configuration files, each isolating a different hyperparameter:
+                        <ul>
+                            <li><b class="bold-underline">Dropout rate</b> — no significant difference across values; best at ~23%</li>
+                            <li><b class="bold-underline">Hidden layers</b> — <code>[128, 64, 32]</code> outperformed shallower architectures</li>
+                            <li><b class="bold-underline">Batch size</b> — batch size 100 achieved the best generalization</li>
+                            <li><b class="bold-underline">Learning rate</b> — 0.001 was optimal; 0.0001 converged too slowly</li>
+                            <li><b class="bold-underline">Activation functions</b> — ReLU and LeakyReLU performed best;
+                            sigmoid performed worst due to vanishing gradients and limited output range</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>5. Optimizer Comparison</strong><br>
+                        We compared <b class="bold-underline">Adam, RMSProp, SGD, AdaGrad, and NAdamW</b> in two setups —
+                        with and without dropout. <b class="bold-underline">Adam consistently performed best without dropout</b>.
+                        With dropout at 50% and a lower learning rate, <b class="bold-underline">RMSProp slightly outperformed Adam</b>,
+                        while <b class="bold-underline">AdaGrad was the weakest</b> optimizer in the dropout setting —
+                        consistent with the findings of the original Adam paper.
+                    </li>
+                </ul>
+
+                <h2>✨ WHAT DID I LEARN?</h2>
+                <p>
+                    This project introduced me to the full regression modeling workflow with neural networks —
+                    from raw data exploration to systematic hyperparameter tuning and optimizer benchmarking.
+                    I learned how to structure experiments properly using sweep configurations and how to interpret
+                    results across multiple metrics rather than relying on a single number.
+                </p>
+                <p>
+                    The most valuable insight was understanding how sensitive MLP performance is to seemingly small
+                    decisions — like the choice of activation function or learning rate. Seeing Adam's robustness
+                    confirmed across our own experiments, and matching the conclusions of the original paper, was
+                    a satisfying moment that made the theoretical knowledge feel much more concrete.
+                </p>
+
+                <h2>✨ DOCUMENTS</h2>
+
+                <div class="reports-grid">
+
+                    <a class="report-btn" href="https://wandb.ai/xmagyarova-stu/NN_assignment1/reports/Neural-networks-Project-1--VmlldzoxMTk3NTEzOA?accessToken=1p7chvvd0g04x2fvyn555p899zke8v8i1igpg6eekbesgbnehq4ggwm54drwnngg" target="_blank">
+                        <div class="report-emoji">📖</div>
+                        <div class="report-content">
+                            <div class="report-title">Online Wandb report</div>
+                            <div class="report-desc">
+                                A complete report of what we did. Created in Wandb. 
+                            </div>
+                        </div>
+                    </a>
+
+                    <a class="report-btn" href="resources/NN1.pdf" target="_blank">
+                        <div class="report-emoji">📖</div>
+                        <div class="report-content">
+                            <div class="report-title">PDF Wandb report</div>
+                            <div class="report-desc">
+                                A complete report of what we did. Read this in case the online version does not work. Created in Wandb.
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+
+                <h2>✨ TOOLS</h2>
+                <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px;">
+                    <span class="tag">Python</span>
+                    <span class="tag">PyTorch</span>
+                    <span class="tag">MLP</span>
+                    <span class="tag">Adam</span>
+                    <span class="tag">Weights & Biases</span>
+                    <!-- pridaj/uber podľa projektu -->
+                </div>
+
+                <div
+                    style="margin-top: 32px; padding: 16px; background: var(--pink-light); border-radius: 12px; border: 1px solid var(--pink-mid);">
+                    <div style="font-size: 12px; color: var(--text-light); margin-bottom: 8px; font-weight: 700;">🔗
+                        LINKS</div>
+                    <a href="https://github.com/allky/House-Price-Prediction-with-MLP" target="_blank" rel="noopener noreferrer"
+                        style="color: var(--rose); font-size: 13px; display:block; margin-bottom:6px;">→ GitHub
+                        repository</a>
+
+                    <a href="https://www.openml.org/search?type=data&sort=runs&id=537&status=active" target="_blank" rel="noopener noreferrer"
+                        style="color: var(--rose); font-size: 13px; display:block; margin-bottom:6px;">→ Dataset</a>
+
+                    <a href="https://arxiv.org/pdf/1412.6980" target="_blank" rel="noopener noreferrer"
+                        style="color: var(--rose); font-size: 13px; display:block; margin-bottom:6px;">→ Paper</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="site-footer">
+            ♡ made with love &amp; too much coffee ♡
+        </div>
+
+    </div>
+
+</body>
+
+</html>

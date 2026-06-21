@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="sk">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🐾 Class imbalance in animal image classification</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
+</head>
+
+<body>
+
+    <div class="browser-frame">
+
+        <!-- Browser chrome -->
+        <div class="browser-chrome">
+            <div class="url-bar">🌸🌸🌸</div>
+        </div>
+
+        <!-- Project detail -->
+        <div class="project-detail">
+
+            <a href="../projekty.html" class="back-link">← back to projects</a>
+
+            <h1>🐾 Class imbalance in animal image classification</h1>
+
+            <div class="detail-meta">
+                <span class="tag">🧬 Deep learning</span>
+                <span class="tag">📅 April 2025</span>
+                <span class="tag">🏫 School Project</span>
+            </div>
+
+            <div class="detail-cover">
+                <div class="img-wrapper">
+                    <img src="../images/cnn.png" alt="cnn" />
+                </div>
+            </div>
+
+            <div class="detail-body">
+
+                <h2>✨ ABOUT PROJECT</h2>
+                <p>
+                    This project was developed as part of the <b class="bold-underline">Neural Networks</b> course during
+                    my studies at FIIT STU. I worked on it as a team with my classmates <b class="bold-underline">Lenka & Martin ♡</b>.
+                </p>
+                <p>
+                    The goal of the project was to explore the <b class="bold-underline">class imbalance problem</b> in the context
+                    of image classification. We trained CNN models to classify animal images across <b class="bold-underline">10 categories</b>
+                    and systematically compared how different strategies for handling imbalanced data —
+                    <b class="bold-underline">oversampling</b>, <b class="bold-underline">undersampling</b>, and training on the
+                    <b class="bold-underline">original imbalanced dataset</b> — affect model performance.
+                </p>
+                <p>
+                    The dataset contained approximately <b class="bold-underline">28,000 animal images</b> belonging to 10 classes:
+                    dog, cat, horse, spider, butterfly, chicken, sheep, cow, squirrel, and elephant — with significant class imbalance
+                    present from the start (ranging from ~1,000 to over 3,300 images per class).
+                </p>
+
+
+                <h2>✨ WHAT WE DID</h2>
+                <p>
+                    I participated across the full deep learning pipeline — from exploratory data analysis and preprocessing
+                    to architecture design, training, and final evaluation across multiple experimental setups.
+                </p>
+                <ul>
+                    <li><strong>1. Technical Literature & Research</strong><br>
+                        We reviewed a paper focused on the <b class="bold-underline">class imbalance problem in deep learning</b>,
+                        which guided our experimental design. Based on this, we set up a framework to compare the impact of
+                        <b class="bold-underline">oversampling</b>, <b class="bold-underline">undersampling</b>, and using the
+                        <b class="bold-underline">original imbalanced distribution</b> on classification performance.
+                    </li>
+
+                    <li><strong>2. Dataset & EDA</strong><br>
+                        We analyzed the dataset structure by plotting the <b class="bold-underline">distribution of images across classes</b>,
+                        visually inspecting sample images to assess quality and labeling accuracy — during which we identified
+                        several <b class="bold-underline">mislabeled images</b>. We also examined <b class="bold-underline">image resolution variance</b>,
+                        which was found to be high across the dataset.
+
+                        <div class="img-wrapper">
+                            <img src="../images/classes.png" alt="classes" />
+                        </div>
+
+                    </li>
+
+                    <li><strong>3. Data Preprocessing</strong><br>
+                        We implemented a custom <b class="bold-underline"><code>DataModule</code></b> class handling data loading,
+                        augmentation, and balancing. All images were <b class="bold-underline">resized to 224×224 pixels</b>.
+                        Training images underwent augmentation including random flips, rotations, affine transforms, and color jittering.
+                        Dataset was split <b class="bold-underline">70/15/15</b> into train, validation, and test subsets using a fixed seed.
+                        To handle imbalance, we implemented a <b class="bold-underline"><code>BalancerWrapper</code></b> supporting
+                        optional online oversampling or undersampling modes.
+                    </li>
+
+                    <li><strong>4. Model Architecture</strong><br>
+                        We implemented and compared three CNN architectures:
+                        <ul>
+                            <li><b class="bold-underline">AlexNet</b> — a classic deep CNN with batch normalization, dropout,
+                            and softmax output, used as our initial baseline. Implemented and customized mainly just for fun, as this architecture is originally for 2 channel images only.</li>
+
+                            <br>
+                            <div class="img-wrapper">
+                                <img src="../images/alexnet.png" alt="alexnet architecture" />
+                            </div>
+                            <br>
+
+                            <li><b class="bold-underline">SimpleNet</b> — a custom CNN with a compact fully connected section,
+                            batch normalization, ReLU activations, max-pooling, and dropout.</li>
+
+                            <!-- OBRAZOK: SimpleNet architektura -->
+                             <br>
+                            <div class="img-wrapper">
+                                <img src="../images/simplenet.png" alt="simplenet architecture" />
+                            </div>
+                            <br>
+
+                            <li><b class="bold-underline">SimpleNetV3</b> — a refined version of SimpleNet featuring smaller
+                            initial kernels, more channels at deeper layers, additional pooling, global average pooling,
+                            <b class="bold-underline">LeakyReLU</b> activations, and dropout between convolutional layers
+                            to address overfitting.</li>
+
+                            <!-- OBRAZOK: SimpleNetV3 architektura -->
+                             <br>
+                            <div class="img-wrapper">
+                                <img src="../images/simplenetv3.png" alt="simplenetv3 architecture" />
+                            </div>
+                            <br>
+                        </ul>
+                    </li>
+
+                    <li><strong>5. Experiments</strong><br>
+                        All final experiments used <b class="bold-underline">SimpleNetV3</b> trained for <b class="bold-underline">60 epochs</b>
+                        with the <b class="bold-underline">AdamW optimizer</b>, <b class="bold-underline">CosineAnnealingLR scheduler</b>,
+                        and <b class="bold-underline">CrossEntropyLoss with label smoothing (0.1)</b>. We compared three dataset strategies:
+                        <ul>
+                            <li><b class="bold-underline">Undersampled</b> (1,000 samples per class) — test accuracy ~66%, F1 ~65%</li>
+                            <li><b class="bold-underline">Oversampled</b> (3,397 samples per class) — test accuracy ~81%, F1 ~80%</li>
+                            <li><b class="bold-underline">Original imbalanced</b> — test accuracy ~76%, F1 ~74%</li>
+                        </ul>
+                        Oversampling consistently produced the strongest results across all metrics.
+                    </li>
+
+                    <li><strong>6. Evaluation</strong><br>
+                        Models were evaluated using <b class="bold-underline">accuracy, precision, recall, F1-score, top-1 and top-5 accuracy</b>,
+                        and <b class="bold-underline">confusion matrices</b>. All runs were tracked in <b class="bold-underline">Weights & Biases</b>.
+                        Our best model — SimpleNetV3 trained on the oversampled dataset — achieved <b class="bold-underline">~81% test accuracy</b>
+                        and a <b class="bold-underline">top-5 accuracy of 98%</b>.
+                    </li>
+                </ul>
+
+                <h2>✨ WHAT DID I LEARN?</h2>
+                <p>
+                    This project gave me a deep appreciation for how much data quality and distribution matter in deep learning —
+                    sometimes more than the model architecture itself. I learned how to design and implement a full image classification
+                    pipeline from scratch, including custom data loading, augmentation strategies, and architecture iteration.
+                </p>
+                <p>
+                    The most important takeaway was understanding the real-world trade-offs between oversampling and undersampling.
+                    While oversampling delivered the best results, it also came with significantly higher training time and a greater
+                    risk of overfitting on synthetic data. Undersampling was faster but lost valuable information.
+                </p>
+
+                <h2>✨ DOCUMENTS</h2>
+
+                <div class="reports-grid">
+
+                    <a class="report-btn" href="https://wandb.ai/xmagyarova-stu/NN-2/reports/Neural-networks-Project-2--VmlldzoxMjI5NDUxNw?accessToken=c8aqnq2m9mna92sc12q53btogvk5fc0d07b21k3ykmz490u6gpt9n1roge2iynku" target="_blank">
+                        <div class="report-emoji">📖</div>
+                        <div class="report-content">
+                            <div class="report-title">Online Wandb report</div>
+                            <div class="report-desc">
+                                A complete report of what we did. Created in Wandb. 
+                            </div>
+                        </div>
+                    </a>
+
+                    <a class="report-btn" href="resources/NN2.pdf" target="_blank">
+                        <div class="report-emoji">📖</div>
+                        <div class="report-content">
+                            <div class="report-title">PDF Wandb report</div>
+                            <div class="report-desc">
+                                A complete report of what we did. Read this in case the online version does not work. Created in Wandb.
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+
+                <h2>✨ TOOLS</h2>
+                <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px;">
+                    <span class="tag">Python</span>
+                    <span class="tag">PyTorch</span>
+                    <span class="tag">CNN</span>
+                    <span class="tag">Weights & Biases</span>
+                    <!-- pridaj/uber podľa projektu -->
+                </div>
+
+                <div
+                    style="margin-top: 32px; padding: 16px; background: var(--pink-light); border-radius: 12px; border: 1px solid var(--pink-mid);">
+                    <div style="font-size: 12px; color: var(--text-light); margin-bottom: 8px; font-weight: 700;">🔗
+                        LINKS</div>
+                    <a href="https://github.com/allky/Class-imbalance-in-animal-image-classification" target="_blank" rel="noopener noreferrer"
+                        style="color: var(--rose); font-size: 13px; display:block; margin-bottom:6px;">→ GitHub
+                        repository</a>
+
+                    <a href="https://www.kaggle.com/datasets/alessiocorrado99/animals10" target="_blank" rel="noopener noreferrer"
+                        style="color: var(--rose); font-size: 13px; display:block; margin-bottom:6px;">→ Dataset</a>
+
+                    <a href="https://arxiv.org/pdf/1710.05381" target="_blank" rel="noopener noreferrer"
+                        style="color: var(--rose); font-size: 13px; display:block; margin-bottom:6px;">→ Paper</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="site-footer">
+            ♡ made with love &amp; too much coffee ♡
+        </div>
+
+    </div>
+
+</body>
+
+</html>

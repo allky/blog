@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="sk">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EXPERIENCE & CV</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
+
+    <style>
+        /* ── CV-specific styling, doplnené k existujúcemu style.css ── */
+        .cv-wrapper {
+            padding: 36px 40px;
+        }
+
+        .cv-header {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 28px;
+            align-items: center;
+            margin-bottom: 32px;
+            padding-bottom: 28px;
+            border-bottom: 1.5px solid var(--pink-light);
+        }
+
+        .cv-avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--pink-mid);
+            display: block;
+        }
+
+        .cv-header h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 30px;
+            color: var(--pink-accent);
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .cv-header .cv-subtitle {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .cv-header .cv-subtitle b {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .cv-contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .cv-section {
+            margin-bottom: 36px;
+        }
+
+        .cv-section h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 19px;
+            color: var(--pink-accent);
+            font-style: italic;
+            margin-bottom: 18px;
+        }
+
+        /* ── Timeline pre pracovné skúsenosti a vzdelanie ── */
+        .cv-timeline {
+            position: relative;
+            padding-left: 26px;
+            border-left: 2px solid var(--pink-light);
+        }
+
+        .cv-item {
+            position: relative;
+            margin-bottom: 24px;
+        }
+
+        .cv-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .cv-item::before {
+            content: '';
+            position: absolute;
+            left: -32px;
+            top: 4px;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: var(--pink-accent);
+            border: 2px solid var(--white);
+            box-shadow: 0 0 0 2px var(--pink-mid);
+        }
+
+        .cv-item-date {
+            display: inline-block;
+            background: var(--pink-light);
+            border: 1px solid var(--pink-mid);
+            border-radius: 20px;
+            padding: 2px 12px;
+            font-size: 11px;
+            color: var(--rose);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .cv-item h3 {
+            font-size: 14.5px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 2px;
+        }
+
+        .cv-item .cv-item-org {
+            font-size: 12.5px;
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 6px;
+        }
+
+        .cv-item p {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* ── Skill bars ── */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px 28px;
+        }
+
+        .skill-block {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .skill-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12.5px;
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .skill-label span.level {
+            font-weight: 500;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        .skill-bar-track {
+            width: 100%;
+            height: 7px;
+            background: var(--pink-light);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-bar-fill {
+            height: 100%;
+            border-radius: 10px;
+            background: linear-gradient(90deg, var(--pink-dark), var(--pink-accent));
+        }
+
+        /* ── Jazyky ako menšie bary ── */
+        .lang-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px 28px;
+        }
+
+        @media (max-width: 620px) {
+            .cv-wrapper {
+                padding: 24px 20px;
+            }
+
+            .cv-header {
+                grid-template-columns: 1fr;
+                text-align: center;
+                justify-items: center;
+            }
+
+            .cv-contact-row {
+                justify-content: center;
+            }
+
+            .skills-grid,
+            .lang-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="browser-frame">
+
+        <!-- Browser chrome -->
+        <div class="browser-chrome">
+            <div class="url-bar">🌸🌸🌸</div>
+        </div>
+
+        <div class="cv-wrapper">
+
+            
+
+              <div class="section-tabs">
+    <a href="index.html"><div class="section-tab">I. HOME</div></a>
+    <a href="projekty.html"><div class="section-tab">II. PROJECTS</div></a>
+    <div class="section-tab active">III. EXPERIENCE & CV</div>
+  </div>
+
+            <br><br>
+            <!-- Header -->
+            <div class="cv-header">
+                
+                <div>
+
+                    <h1>Ing. Hana Magyarová</h1>
+                    <p class="cv-subtitle">
+                        Recent graduate of FIIT STU ·
+                        a lover of finding meaning in data, machine learning, and various forms of art
+                    </p>
+                    <div class="cv-contact-row">
+                        <span class="tag">📧 hana.magyarova1@gmail.com</span>
+                        <span class="tag">📍 Banská Bystrica, SR</span>
+                        <span class="tag">🚗 Driver's license B</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- O mne -->
+            <div class="cv-section">
+                <h2>✨ ABOUT ME</h2>
+                <p style="font-size: 13.5px; color: var(--text-light); line-height: 1.8;">
+                    I am a recent graduate from FIIT STU and recently worked as
+                    <b class="bold-underline">Data Engineer</b> at Erste Digital. During my studies and part-time jobs, I’ve tried my hand at
+                    a wide variety of things - from IT support, to writing automation scripts and testing applications,
+                    to web development and digitally drawing electrical schematics. I love working with data,
+                    data pipelines, and machine learning the most, but I also enjoy UI/UX and creating things that have a certain “vibe” 🌸.
+                </p>
+            </div>
+
+            <!-- Pracovné skúsenosti -->
+            <div class="cv-section">
+                <h2>✨ WORK EXPERIENCE</h2>
+                <div class="cv-timeline">
+
+                    <div class="cv-item">
+                        <span class="cv-item-date">MAR 2024 — MAY 2026</span>
+                        <h3>Data Engineer for Data Warehouse</h3>
+                        <div class="cv-item-org">Erste Digital GmbH, o.z. Slovakia, Bratislava</div>
+                        <p>Mapping data from source to destination, identifying defects within the data warehouse layers, and
+                            correcting them. Working in an international team.</p>
+                    </div>
+
+                    <div class="cv-item">
+                        <span class="cv-item-date">SEP 2024 — DEC 2025</span>
+                        <h3>Automation Script Developer</h3>
+                        <div class="cv-item-org">Správca zálohového systému n. o., Bratislava</div>
+                        <p>Development of scripts to automate repetitive tasks.</p>
+                    </div>
+
+                    <div class="cv-item">
+                        <span class="cv-item-date">JUL 2023 — DEC 2023</span>
+                        <h3>IT Tester</h3>
+                        <div class="cv-item-org">Správca zálohového systému n. o., Bratislava</div>
+                        <p>Testing newly added (as well as existing) features of applications (mobile and web apps). Creating
+                            test data and scripts that generated this data.</p>
+                    </div>
+
+                    <div class="cv-item">
+                        <span class="cv-item-date">MAY 2022 — OCT 2022</span>
+                        <h3>IT Support</h3>
+                        <div class="cv-item-org">AMNET s. r. o., Bratislava</div>
+                        <p>Windows server admin, data backups.</p>
+                    </div>
+
+                    <div class="cv-item">
+                        <span class="cv-item-date">JUN 2022 — AUG 2022</span>
+                        <h3>Programming Instructor</h3>
+                        <div class="cv-item-org">Logiscool, Bratislava</div>
+                        <p>Lessons on the basics of cybersecurity, game development, and video editing.</p>
+                    </div>
+
+                    <div class="cv-item">
+                        <span class="cv-item-date">NOV 2021 — JAN 2022</span>
+                        <h3>Static HTML+PHP page creator</h3>
+                        <div class="cv-item-org">Company Market s. r. o., Bratislava</div>
+                        <p>Creating a static website using Bootstrap and PHP.</p>
+                    </div>
+
+                    <div class="cv-item">
+                        <span class="cv-item-date">MAY 2021 — AUG 2021</span>
+                        <h3>Circuit diagram designer</h3>
+                        <div class="cv-item-org">Elektro FM, Šurany</div>
+                        <p>Digital drawing of diagrams, such as those of switchboards.</p>
+                    </div>
+
+                    <div class="cv-item">
+                        <span class="cv-item-date">NOV 2019 — MAY 2020</span>
+                        <h3>Eshop manager</h3>
+                        <div class="cv-item-org">Nábytok Mozaika, Šurany</div>
+                        <p>Adding, deleting, updating new eshop items.</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Vzdelanie -->
+            <div class="cv-section">
+                <h2>✨ EDUCATION</h2>
+                <div class="cv-timeline">
+
+                    <div class="cv-item">
+                        <span class="cv-item-date">SEP 2024 — JUN 2026</span>
+                        <h3>Faculty of Computer Science and Information Technology - Intelligent Software Systems</h3>
+                        <div class="cv-item-org">Slovak University of Technology in Bratislava · Master's Degree</div>
+                        <p>Thesis topic: <b class="bold-underline">Tackling Disinformation Using Computer
+                                Games</b>. A comprehensive comparative analysis examining the effectiveness of a game-based approach to
+                            education about disinformation compared to traditional articles.</p>
+                    </div>
+
+                    <div class="cv-item">
+                        <span class="cv-item-date">SEP 2020 — MAY 2024</span>
+                        <h3>Faculty of Computer Science and Information Technology — Computer Science</h3>
+                        <div class="cv-item-org">Slovak University of Technology in Bratislava · Bachelor's Degree</div>
+                        <p>Bachelor's thesis topic: A comparative study in the field of UX and its evaluation.</p>
+                    </div>
+
+                    <div class="cv-item">
+                        <span class="cv-item-date">SEP 2016 — MAY 2020</span>
+                        <h3>Šurany Gymnasium</h3>
+                        <div class="cv-item-org">Class with a focus on natural sciences.</div>
+                    </div>
+
+                    <div class="cv-item">
+                        <span class="cv-item-date">SEP 2008 — MAY 2020</span>
+                        <h3>School of the Arts, Šurany</h3>
+                        <div class="cv-item-org">Class focused on traditional drawing and painting.</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Znalosti -->
+            <div class="cv-section">
+                <h2>✨ SKILLS</h2>
+                <div class="skills-grid">
+
+                    <div class="skill-block">
+                        <div class="skill-label"><span>Python</span><span class="level">Advanced</span></div>
+                        <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 80%;"></div></div>
+                    </div>
+
+                    <div class="skill-block">
+                        <div class="skill-label"><span>C</span><span class="level">Advanced</span></div>
+                        <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 80%;"></div></div>
+                    </div>
+
+                    <div class="skill-block">
+                        <div class="skill-label"><span>C#</span><span class="level">Intermediate</span></div>
+                        <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 60%;"></div></div>
+                    </div>
+
+                    <div class="skill-block">
+                        <div class="skill-label"><span>HTML/CSS</span><span class="level">Advanced</span></div>
+                        <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 80%;"></div></div>
+                    </div>
+
+                    <div class="skill-block">
+                        <div class="skill-label"><span>JavaScript</span><span class="level">Basics</span></div>
+                        <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 35%;"></div></div>
+                    </div>
+
+                    <div class="skill-block">
+                        <div class="skill-label"><span>SQL</span><span class="level">Intermediate</span></div>
+                        <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 60%;"></div></div>
+                    </div>
+
+                    <div class="skill-block">
+                        <div class="skill-label"><span>PHP</span><span class="level">Basics</span></div>
+                        <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 35%;"></div></div>
+                    </div>
+
+                    <div class="skill-block">
+                        <div class="skill-label"><span>Wolfram Mathematica</span><span class="level">Basics</span></div>
+                        <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 35%;"></div></div>
+                    </div>
+
+                    <div class="skill-block">
+                        <div class="skill-label"><span>R</span><span class="level">Intermediate</span></div>
+                        <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 60%;"></div></div>
+                    </div>
+
+                    <div class="skill-block">
+                        <div class="skill-label"><span>Git</span><span class="level">Basics</span></div>
+                        <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 35%;"></div></div>
+                    </div>
+
+                    <div class="skill-block">
+                        <div class="skill-label"><span>Docker</span><span class="level">Basics</span></div>
+                        <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 35%;"></div></div>
+                    </div>
+
+                    <div class="skill-block">
+                        <div class="skill-label"><span>Statistics</span><span class="level">Advanced</span></div>
+                        <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 80%;"></div></div>
+                    </div>
+
+                    <div class="skill-block">
+                        <div class="skill-label"><span>Machine learning</span><span class="level">Advanced</span></div>
+                        <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 80%;"></div></div>
+                    </div>
+
+                    <div class="skill-block">
+                        <div class="skill-label"><span>Neural networks - PyTorch</span><span class="level">Intermediate</span></div>
+                        <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 60%;"></div></div>
+                    </div>
+
+                    <div class="skill-block">
+                        <div class="skill-label"><span>Jira</span><span class="level">Intermediate</span></div>
+                        <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 60%;"></div></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Jazyky -->
+            <div class="cv-section">
+                <h2>✨ LANGUAGES</h2>
+                <div class="lang-grid">
+
+                    <div class="skill-block">
+                        <div class="skill-label"><span>Slovak language</span><span class="level">Native language</span></div>
+                        <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 95%;"></div></div>
+                    </div>
+
+                    <div class="skill-block">
+                        <div class="skill-label"><span>English language</span><span class="level">B2</span></div>
+                        <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 70%;"></div></div>
+                    </div>
+
+                    <div class="skill-block">
+                        <div class="skill-label"><span>Russian language</span><span class="level">B1</span></div>
+                        <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 55%;"></div></div>
+                    </div>
+
+                    <div class="skill-block">
+                        <div class="skill-label"><span>German language</span><span class="level">A2</span></div>
+                        <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 25%;"></div></div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="site-footer">
+            ♡ made with love &amp; too much coffee ♡
+        </div>
+
+    </div>
+
+</body>
+
+</html>

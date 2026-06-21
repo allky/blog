@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="sk">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🖱️ The impact of visible hotspots on usability testing</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
+</head>
+
+<body>
+
+    <div class="browser-frame">
+
+        <!-- Browser chrome -->
+        <div class="browser-chrome">
+            <div class="url-bar">🌸🌸🌸</div>
+        </div>
+
+        <!-- Project detail -->
+        <div class="project-detail">
+
+            <a href="../projekty.html" class="back-link">← back to projects</a>
+
+            <h1>🖱️ The impact of visible hotspots on usability testing</h1>
+
+            <div class="detail-meta">
+                <span class="tag">🎨 UI/UX</span>
+                <span class="tag">🤖 Prototyping</span>
+                <span class="tag">📅 May 2024</span>
+                <span class="tag">🏫 School Project</span>
+            </div>
+
+            <div class="detail-cover">
+                <div class="img-wrapper">
+                    <img src="../images/prototype.png" alt="prototype" />
+                </div>
+            </div>
+
+            <div class="detail-body">
+
+                <h2>✨ ABOUT PROJECT</h2>
+                <p>
+                    This was my <b class="bold-underline">Bachelor's thesis</b> at FIIT STU, supervised by 
+                    <b class="bold-underline">Ing. Eduard Kuric, PhD.</b>
+                </p>
+                <p>
+                    The goal was to investigate how <b class="bold-underline">visible hotspots</b> in a 
+                    clickable prototype affect <b class="bold-underline">user behaviour</b> during usability testing. 
+                    Hotspots are interactive elements that highlight clickable areas in a prototype — and while they 
+                    simplify navigation, they might also mask real usability issues by guiding users too strongly.
+                </p>
+                <p>
+                    To explore this, I designed a <b class="bold-underline">high-fidelity Figma prototype</b> of 
+                    a flower e-shop — intentionally built with usability flaws - and ran a 
+                    <b class="bold-underline">comparative usability study</b> with 70 participants split into two 
+                    groups: one testing the prototype <b class="bold-underline">with visible hotspots</b>, one 
+                    <b class="bold-underline">without</b>.
+                </p>
+
+
+                <h2>✨ WHAT I DID</h2>
+                <ul>
+                    <li><strong>1. Literature Review</strong><br>
+                        I analyzed existing research on <b class="bold-underline">user experience</b>, 
+                        <b class="bold-underline">usability</b>, and <b class="bold-underline">user-centered design</b>. 
+                        I covered concepts like Nielsen's 10 usability heuristics, the SUS scale, types of usability 
+                        testing (moderated vs. unmoderated, qualitative vs. quantitative), and prototyping tools 
+                        including <b class="bold-underline">Figma</b>, Axure RP, and InVision - with a focus on how 
+                        hotspots are handled differently across tools.
+                    </li>
+
+                    <li><strong>2. Prototype Design</strong><br>
+                        I designed a <b class="bold-underline">high-fidelity prototype of a flower e-shop in Figma</b> 
+                        with intentional usability flaws - such as a non-functional back button, 
+                        non-overlapping filters, and a misleading review button - to encourage interaction and 
+                        reveal navigation patterns. There were <b class="bold-underline">two versions</b> of the same 
+                        prototype: one with visible hotspots and one without.
+                    </li>
+
+                    <li><strong>3. Study Design</strong><br>
+                        I formulated <b class="bold-underline">4 research questions and corresponding hypotheses</b>, 
+                        and designed <b class="bold-underline">4 user tasks</b> based on realistic scenarios 
+                        (e.g. finding the newest blog post, tracking an order, buying a specific bouquet). 
+                        I selected metrics including <b class="bold-underline">task completion rate</b>, 
+                        <b class="bold-underline">error rate</b>, <b class="bold-underline">dead clicks</b>, 
+                        <b class="bold-underline">lostness</b>, and <b class="bold-underline">task completion time</b>. 
+                        Before launching the main study, I ran <b class="bold-underline">two rounds of pilot testing</b> 
+                        and iterated on both the prototype and task wording based on feedback.
+                    </li>
+
+                    <li><strong>4. Study Execution</strong><br>
+                        The study was conducted <b class="bold-underline">remotely and unmoderated</b> via the 
+                        platform <b class="bold-underline">UXtweak</b>, with <b class="bold-underline">70 participants</b> 
+                        (35 per group) across diverse ages and education levels. Participants completed a 
+                        pre-study demographic questionnaire, the four tasks, and a post-study questionnaire 
+                        with open-ended feedback.
+                    </li>
+
+                    <li><strong>5. Data Analysis</strong><br>
+                        I analyzed the collected data in <b class="bold-underline">Jupyter Notebook using Python</b>. 
+                        For hypothesis testing I used the <b class="bold-underline">chi-square test</b> and 
+                        <b class="bold-underline">Mann-Whitney U test</b> depending on data type, always verifying 
+                        assumptions (normality via Q-Q plots and histograms, variance via Levene's test) before 
+                        choosing the appropriate statistical method.
+                    </li>
+                </ul>
+
+                <h2>✨ KEY FINDINGS</h2>
+                <p>
+                    Two hypotheses were confirmed with statistical significance. Participants 
+                    <b class="bold-underline">without hotspots completed significantly more tasks</b> 
+                    (87.9% vs. 73.6% success rate, p ≈ 0.004). And participants 
+                    <b class="bold-underline">with hotspots made far more dead clicks</b> - 684 vs. 361 total 
+                    (p ≈ 0.0000036) - suggesting they were clicking around the highlighted areas rather than 
+                    engaging with the interface meaningfully.
+                </p>
+                <p>
+                    Differences in <b class="bold-underline">error rate</b> and 
+                    <b class="bold-underline">task completion time</b> were observed between groups but were 
+                    not statistically significant. Qualitative feedback revealed that participants with hotspots 
+                    struggled more with filters and flower selection, while those without hotspots found 
+                    navigation more demanding overall — consistent with the hypothesis that hotspots reduce 
+                    cognitive effort but may also reduce real engagement.
+                </p>
+
+                <h2>✨ WHAT DID I LEARN?</h2>
+                <p>
+                    This project taught me how to independently design and execute a full 
+                    <b class="bold-underline">UX research study</b> - from framing research questions and 
+                    building a prototype, to running pilot tests, collecting data from real participants, 
+                    and applying proper statistical methods to draw conclusions.
+                </p>
+                <p>
+                    The most valuable insight was learning how to think critically about what metrics actually 
+                    measure, and when a difference in data is meaningful versus just noise. Seeing statistically 
+                    significant results emerge from real participant behavior, and being able to explain why, 
+                    made the whole process feel genuinely rewarding.
+                </p>
+
+                <h2>✨ DOCUMENTS</h2>
+
+                <div class="reports-grid">
+
+                    <a class="report-btn" href="resources/BP.pdf" target="_blank">
+                        <div class="report-emoji">📖</div>
+                        <div class="report-content">
+                            <div class="report-title">PDF - Bachelor thesis</div>
+                            <div class="report-desc">
+                                A complete Bachelor thesis document.
+                            </div>
+                        </div>
+                    </a>
+
+                    <a class="report-btn" href="resources/BP_user_tasks.pdf" target="_blank">
+                        <div class="report-emoji">📖</div>
+                        <div class="report-content">
+                            <div class="report-title">PDF - User tasks</div>
+                            <div class="report-desc">
+                                A PDF with user tasks used in the study.
+                            </div>
+                        </div>
+                    </a>
+
+                    <a class="report-btn" href="https://www.figma.com/design/7qap0HrY30KGoxSYMb6Uo4/Untitled?node-id=0-1&t=bnTj1KV0oKblWPOX-1" target="_blank">
+                        <div class="report-emoji">📖</div>
+                        <div class="report-content">
+                            <div class="report-title">Prototype</div>
+                            <div class="report-desc">
+                                Prototype used in the study. Created in Figma.
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+
+                <h2>✨ TOOLS</h2>
+                <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px;">
+                    <span class="tag">Figma</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">UXtweak</span>
+                    <!-- pridaj/uber podľa projektu -->
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="site-footer">
+            ♡ made with love &amp; too much coffee ♡
+        </div>
+
+    </div>
+
+</body>
+
+</html>

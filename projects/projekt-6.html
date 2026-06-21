@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>🩺 Multi-class disease classification based on symptoms</title>
+    <title>👤 Facial recognition using siamese neural networks</title>
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
@@ -24,11 +24,11 @@
 
             <a href="../projekty.html" class="back-link">← back to projects</a>
 
-            <h1>😩 NSIETE - FACE RECOGNITION</h1>
+            <h1>👤 Facial recognition using siamese neural networks</h1>
 
             <div class="detail-meta">
-                <span class="tag">🧬 Neural Networks</span>
-                <span class="tag">📅 may 2025</span>
+                <span class="tag">🧬 Deep learning</span>
+                <span class="tag">📅 May 2025</span>
                 <span class="tag">🏫 School Project</span>
             </div>
 
@@ -42,144 +42,123 @@
 
                 <h2>✨ ABOUT PROJECT</h2>
                 <p>
-                    This project was developed as part of the <b class="bold-underline">OZNAL (Knowledge Discovery)</b>
-                    course during
-                    my studies at FIIT STU. I worked on the project as a pair with my classmate <b
-                        class="bold-underline">Lenka ♡</b>.
+                    This project was developed as part of the <b class="bold-underline">Neural Networks</b> course during 
+                    my studies at FIIT STU. I worked on the project as a team with my classmates <b class="bold-underline">Lenka & Martin ♡</b>.
                 </p>
                 <p>
-                    The goal of the project was to develop a <b class="bold-underline">multi-class classification</b>
-                    system capable of
-                    diagnosing common diseases based
-                    on patient symptoms. Our solution was implemented as an interactive <b class="bold-underline">Shiny
-                        application</b>
-                    in R, leveraging machine learning
-                    techniques to distinguish between eight different medical conditions: Asthma, Dengue, Malaria,
-                    Common Cold, Cough,
-                    Body Ache, Runny Nose, and Normal Fever.
+                    The main goal of the project was to develop and evaluate an advanced <b class="bold-underline">face verification system</b>. 
+                    The core approach involved training <b class="bold-underline">Siamese Neural Networks</b> to learn high-quality facial embeddings 
+                    capable of accurately distinguishing between different human faces. <b class="bold-underline">The system's task is to verify whether two separate 
+                    facial images belong to the same person or not</b>.
                 </p>
                 <p>
-                    The project evaluates whether a controlled set of basic symptoms - such as Fever, Headache, Cough,
-                    Fatigue, and Body
-                    Pain - is sufficient to accurately predict and distinguish between overlapping diagnoses in a
-                    clinical context.
+                    A key contribution of our work was a comprehensive comparison between networks trained using classical 
+                    <b class="bold-underline">Triplet Margin Loss</b> and a state-of-the-art alternative called <b class="bold-underline">Shadow Loss</b> (based on recent research). 
+                    Additionally, we systematically explored the effects of different model architectures, embedding sizes, and various hyperparameters 
+                    on the overall verification performance.
                 </p>
+
 
                 <h2>✨ WHAT WE DID</h2>
                 <p>
-                    I worked on the project across the entire machine learning workflow, from initial data exploration
-                    and literature review
-                    to model tuning and evaluation.
+                    I participated across the entire deep learning workflow—from deep dataset exploration to architecture experimentation, 
+                    hyperparameter optimization, and extensive validation.
                 </p>
                 <ul>
                     <li><strong>1. Technical Literature & Research</strong><br>
-                        We conducted research on state-of-the-art methods for <b class="bold-underline">multiclass
-                            classification</b> in
-                        healthcare, analyzing papers focused on disease prediction, lung cancer classification, and
-                        gestational weight gain.
-                        Based on this, we decided to compare a baseline <b class="bold-underline">Random Forest</b>
-                        model with <b class="bold-underline">XGBoost</b>.
+                        We conducted a review of state-of-the-art deep learning losses. We focused our research on a recent paper introducing 
+                        <b class="bold-underline"><a href="https://arxiv.org/abs/2311.14012" target="_blank" rel="noopener noreferrer" style="color: var(--rose); text-decoration: underline; font-weight: bold;">Shadow Loss ↗</a></b>, 
+                        which claims to provide major advantages in memory efficiency and faster convergence by projecting 
+                        embeddings into lower-dimensional spaces. Based on this, we designed an experimental framework to validate these claims against the 
+                        traditional <b class="bold-underline">Triplet Margin Loss</b> baseline.
+                    </li>
+                    
+                    <li><strong>2. Dataset & EDA</strong><br>
+                        We used the popular <b class="bold-underline">Labeled Faces in the Wild (LFW)</b> dataset, containing over 13,000 face images collected from the web. 
+                        During exploratory analysis, we examined the distribution of images across classes, inspected image resolutions and quality, and identified class imbalance issues; 
+                        as most classes (persons) contain only 1 image (~71% of the dataset).
                     </li>
 
-                    <li><strong>2. Exploratory Data Analysis (EDA)</strong><br>
-                        We analyzed a dataset of <b class="bold-underline">5,000 records</b> to check distributions and
-                        class balances. We
-                        <b class="bold-underline">scaled features</b> (transforming Fever to match the 0-10 scale of
-                        other symptoms),
-                        uncovered clinical correlations through <b class="bold-underline">boxplots</b>, and evaluated
-                        multicollinearity
-                        using <b class="bold-underline">correlation matrices</b>.
+                    <div class="detail-cover">
+                        <div class="img-wrapper">
+                            <img src="../images/nn3.png" alt="nn3" />
+                        </div>
+                    </div>
+                    
+                    <li><strong>3. Data preprocessing & Triplet Sampling</strong><br>
+                        We split the dataset by identity — <b class="bold-underline">80% training, 10% validation, 10% testing</b> — ensuring that no identity appeared in more than one subset. 
+                        To support triplet-based training, we implemented an <b class="bold-underline"><code>OnlineTripletDataset</code></b> class that dynamically samples anchor, positive, and negative image triplets. 
+                        We also prepared labeled image pairs from the test set for the final verification stage.
                     </li>
+                    
+                    <li><strong>4. Model Architecture</strong><br>
+                        We implemented and benchmarked two convolutional neural network backbones:
+                        <ul>
+                            <li><b class="bold-underline">Standard ResNet18:</b> A fully-fledged architecture utilizing residual blocks (convolutional layers, batch normalization, and ReLU) to prevent vanishing gradients.</li>
+                                <br><br>
+                                <div class="img-wrapper">
+                                    <img src="../images/resnet.png" alt="resnet" />
+                                </div>
+                                <br><br>
 
-                    <li><strong>3. Data Preprocessing & Power Analysis</strong><br>
-                        We handled the right-skewed distribution of the symptom data by applying a log transformation
-                        <code>log1p(x)</code>.
-                        Performed a <b class="bold-underline">power analysis</b> confirming that our balanced dataset
-                        (<b class="bold-underline">625 samples per disease</b>) heavily exceeded the standard guidelines
-                        for statistical
-                        reliability.
+                            <li><b class="bold-underline">Simplified ResNet18:</b> A lightweight, custom version with fewer residual blocks and reduced channel expansion, built to evaluate performance-to-cost trade-offs.</li>
+                            <br><br>
+                            <div class="img-wrapper">
+                                    <img src="../images/resnet_simplified.png" alt="resnet_simplified" />
+                            </div>
+                            <br><br>
+
+                        </ul>
                     </li>
-
-                    <li><strong>4. Requirements Analysis & Model Selection</strong><br>
-                        Created a comprehensive <b class="bold-underline">comparison matrix</b> evaluating Logistic
-                        Regression, SVM, and
-                        Random Forest against our data characteristics. We selected <b class="bold-underline">Random
-                            Forest</b> for its
-                        robustness against multicollinearity and ability to capture non-linear, <b
-                            class="bold-underline">overlapping
-                            symptom patterns</b> without strict normality assumptions.
+                    
+                    <li><strong>5. Experiments & Hyperparameter Optimization</strong><br>
+                        We ran a series of targeted experiments using <b class="bold-underline">Bayesian hyperparameter sweeps (via Weights & Biases)</b> optimizing batch size, embedding size, 
+                        learning rate, margin, and weight decay — with validation <b class="bold-underline">EER</b> as the target metric. All experiments used the <b class="bold-underline">AdamW optimizer</b> with a 
+                        <b class="bold-underline">CosineAnnealingLR scheduler</b> over 10 epochs. The experiments included: <b class="bold-underline">Shadow Loss vs. Triplet Loss comparison</b>, training on only valid classes 
+                        (those with 2+ images), Simplified ResNet18 evaluation, and final best-model training.
                     </li>
-
-                    <li><strong>5. Model Training & Hyperparameter Tuning</strong><br>
-                        Implemented <b class="bold-underline">stratified sampling</b> for an <b
-                            class="bold-underline">80/20 train/test
-                            split</b>. Conducted a comprehensive <b class="bold-underline">grid search</b> to optimize
-                        the Random Forest
-                        parameters (<code>mtry</code>, <code>ntree</code>, <code>nodesize</code>, <code>maxnodes</code>)
-                        using the <b class="bold-underline">Macro F1 Score</b> as the primary metric to ensure balanced
-                        class performance.
+                    
+                    <li><strong>6. Evaluation</strong><br>
+                        Models were evaluated using <b class="bold-underline">ROC curves</b> and biometric verification metrics: <b class="bold-underline">TAR@FAR=10%/5%/1%</b>, <b class="bold-underline">AUC</b>, and <b class="bold-underline">EER</b>. <b class="bold-underline">Shadow Loss consistently outperformed 
+                        Triplet Loss across all metrics — achieving a better AUC (0.884 vs. 0.811) and lower EER (0.194 vs. 0.262).</b> Our best model, trained for 15 epochs 
+                        with a margin of 0.3, reached an EER of 0.148 and AUC of 0.926.
                     </li>
-
-                    <li><strong>6. Threshold Optimization & Evaluation</strong><br>
-                        Evaluated both Random Forest and XGBoost using <b class="bold-underline">confusion matrices</b>
-                        and multiclass <b class="bold-underline">ROC/AUC curves</b>. To address misclassifications
-                        caused by overlapping respiratory
-                        symptoms, we implemented class-specific <b class="bold-underline">probability threshold
-                            tuning</b> to optimize the
-                        balance between sensitivity and precision.
-                    </li>
-
                 </ul>
-
-                <h2>✨ SHOWCASE</h2>
-                <p>
-                    The video presents a walkthrough of the entire application. It showcases how
-                    data is processed, how the features are analyzed, and how the machine learning models generate
-                    predictions in real
-                    time. Additionally, the visualization presents the performance comparison between our models,
-                    displaying the confusion
-                    matrices and ROC curves for both the baseline Random Forest and XGBoost variations.
-                </p>
-                <div class="detail-cover">
-                    <video src="../images/OZNAL_video.mp4" controls></video>
-                </div>
-
-                <p>
-                    <b class="bold-underline">If you want to test the application yourself and explore its features
-                        firsthand, you can find the live link and
-                        interactive demo in the Links section at the bottom of this page.</b>
-                </p>
 
                 <h2>✨ WHAT DID I LEARN?</h2>
                 <p>
-                    This project gave me hands-on experience with the complete predictive modeling pipeline,
-                    highlighting that machine
-                    learning is as much about data understanding as it is about algorithms. I learned how to deal with
-                    non-linear class
-                    boundaries and how to critically evaluate models beyond simple accuracy.
+                    This project gave me hands-on experience with deep metric learning and the challenges of building a face verification system from scratch. 
+                    I learned how Siamese networks learn to compare rather than classify, and how sensitive embedding quality is to the choice of loss function 
+                    and hyperparameters.
                 </p>
                 <p>
-                    The most valuable takeaway was understanding the real-world trade-offs in model evaluation. While
-                    the untuned Random
-                    Forest achieved the highest overall accuracy (93%), optimizing decision thresholds proved essential
-                    for shifting the
-                    balance between false positives and false negatives—a critical requirement in medical diagnostics
-                    where missing a
-                    condition can have severe consequences.
+                    The most valuable insight was seeing how Shadow Loss — by projecting embeddings into a lower-dimensional space — led to faster convergence 
+                    and stronger verification performance than the standard Triplet Loss. It also taught me that this faster convergence comes with a trade-off: 
+                    Shadow Loss was more prone to overfitting when hyperparameters weren't carefully tuned. Understanding those subtle dynamics between 
+                    optimization speed, generalization, and model complexity was the biggest takeaway from this project.
                 </p>
 
                 <h2>✨ DOCUMENTS</h2>
-                Click to view a PDF summary of this project.
+                Click to view a PDF report of this project.
 
                 <div class="reports-grid">
 
-                    <a class="report-btn" href="resources/Magyarova_Husarova_one_pager_summary.pdf" target="_blank">
+                    <a class="report-btn" href="https://wandb.ai/xmagyarova-stu/nsiete-project-3/reports/Neural-networks-Project-3--VmlldzoxMjczOTkwMg?accessToken=wfekthzy2md8n691f78yfwtgxb81au2lpprbgeb1dwf2nhec49oi0rkebkubaljj" target="_blank">
                         <div class="report-emoji">📖</div>
                         <div class="report-content">
-                            <div class="report-title">One pager summary</div>
+                            <div class="report-title">Online Wandb report</div>
                             <div class="report-desc">
-                                A short summary of what we did. We explain it in a way that’s easy to understand for
-                                people who aren’t familiar with machine learning.
+                                A complete report of what we did. Created in Wandb. 
+                            </div>
+                        </div>
+                    </a>
+
+                    <a class="report-btn" href="resources/NN3.pdf" target="_blank">
+                        <div class="report-emoji">📖</div>
+                        <div class="report-content">
+                            <div class="report-title">PDF Wandb report</div>
+                            <div class="report-desc">
+                                A complete report of what we did. Read this in case the online version does not work. Created in Wandb.
                             </div>
                         </div>
                     </a>
@@ -188,11 +167,12 @@
 
                 <h2>✨ TOOLS</h2>
                 <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px;">
-                    <span class="tag">R</span>
-                    <span class="tag">Shiny</span>
-                    <span class="tag">Random Forest</span>
-                    <span class="tag">XGBoost</span>
-
+                    <span class="tag">Python</span>
+                    <span class="tag">PyTorch</span>
+                    <span class="tag">Siamese Networks</span>
+                    <span class="tag">Shadow Loss</span>
+                    <span class="tag">Triplet Loss</span>
+                    <span class="tag">Weights & Biases</span>
                     <!-- pridaj/uber podľa projektu -->
                 </div>
 
@@ -200,13 +180,15 @@
                     style="margin-top: 32px; padding: 16px; background: var(--pink-light); border-radius: 12px; border: 1px solid var(--pink-mid);">
                     <div style="font-size: 12px; color: var(--text-light); margin-bottom: 8px; font-weight: 700;">🔗
                         LINKS</div>
-                    <a href="https://github.com/xhusarova/PMNIS_projekt" target="_blank" rel="noopener noreferrer"
+                    <a href="https://github.com/allky/Facial-recognition-using-siamese-neural-networks" target="_blank" rel="noopener noreferrer"
                         style="color: var(--rose); font-size: 13px; display:block; margin-bottom:6px;">→ GitHub
                         repository</a>
 
-                    <a href="https://allky.shinyapps.io/oznal_project/" target="_blank" rel="noopener noreferrer"
-                        style="color: var(--rose); font-size: 13px; display:block; margin-bottom:6px;">→ Live
-                        Application Demo</a>
+                    <a href="https://www.kaggle.com/datasets/atulanandjha/lfwpeople" target="_blank" rel="noopener noreferrer"
+                        style="color: var(--rose); font-size: 13px; display:block; margin-bottom:6px;">→ Dataset</a>
+
+                    <a href="https://arxiv.org/pdf/2311.14012" target="_blank" rel="noopener noreferrer"
+                        style="color: var(--rose); font-size: 13px; display:block; margin-bottom:6px;">→ Paper</a>
                 </div>
 
             </div>

@@ -44,7 +44,7 @@
 
                 <h2>✨ ABOUT PROJECT</h2>
                 <p>
-                    This project was developed as part of my Master's thesis at FIIT STU, and later extended into a <b class="bold-underline">published research study</b>. 
+                    This project was developed as part of my Master's thesis at FIIT STU, and later extended into a <b class="bold-underline">to-be published research study</b>. 
                     I designed and implemented a two-player educational game aimed at building
                     resilience against disinformation, specifically in the context of flu vaccination. 
                 </p>
@@ -67,7 +67,7 @@
                     analysis.
                 </p>
                 <ul>
-                    <li><strong>1. Game Design & Mechanics</strong><br>
+                    <li><strong>1. Game design & Mechanics</strong><br>
                         The game is a synchronous two-player experience set in a fictional village
                         preparing for a flu vaccination campaign. Both players connect to the same
                         game session and take opposing roles: the <strong>Defender</strong>, whose
@@ -85,7 +85,7 @@
                             one accurate piece of information and one piece of misinformation.
                         </p>
                         <p>
-                            The image shows two versions of the game—one for each player. While one player is playing,
+                            The image shows two instances of the game - one for each player. While one player is playing,
                             the other waits for their
                             turn. When the turn ends, it switches to the other player.
                         </p>
@@ -96,7 +96,7 @@
                             </div>
                         </div>
                 
-                    <li><strong>2. Strategies & How Gameplay Feels</strong><br>
+                    <li><strong>2. Strategies & How gameplay feels</strong><br>
                         The gameplay feels closest to a <b class="bold-underline">visual novel meets a quiz</b>.
                         Each turn, the active player picks NPC and a strategy and then works through a
                         sequence of 4–5 steps, each presenting a conversation choice. Some steps are
@@ -139,8 +139,8 @@
                         full gameplay flow, screen layouts, and step logic for each strategy. After
                         a few rounds of feedback on the wireframes, I moved to a
                         <strong>software prototype</strong> of the core mechanics — at this stage
-                        the focus was purely on whether the step logic felt right, not on visuals.<br><br>
-                        From there, multiple rounds of playtesting followed. The biggest change was
+                        the focus was purely on whether the step logic felt right, not on visuals.<br>
+                        From there on, multiple rounds of playtesting followed. The biggest change was
                         simplifying the game significantly: the original design had <strong>10
                             scored rounds</strong>, but pilot testing showed sessions ran close to 30
                         minutes, which was too long for the study context. I reduced it to
@@ -151,44 +151,46 @@
                         the way whenever they added complexity without adding learning value.
                     </li>
                 
-                    <li><strong>4. NPC Persona System</strong><br>
+                    <li><strong>4. NPC persona system</strong><br>
                         I created three NPC personas (Mia, Ana, Joe) using Big Five personality profiling (BFI-2-XS) and
                         Ekman emotion modelling.
                         Each persona has a stable identity, dynamic emotional state, and a mutable knowledge base that
                         evolves during gameplay.
-                        <div class="detail-cover">
                             <div class="img-wrapper">
                                 <img src="../images/persona.png" alt="persona" />
                             </div>
-                        </div>
                     </li>
                 
-                    <li><strong>5. AI Integration</strong><br>
+                    <li><strong>5. AI integration</strong><br>
                         I integrated GPT-4o via the OpenAI API to generate real-time, in-character NPC dialogue.
-                        Designed the prompt engineering
+                        I designed the prompt engineering
                         pipeline including structured JSON output constraints, personality encoding in expanded BFI-2
                         format, and conversation
                         history management.
                 
                     </li>
                 
-                    <li><strong>6. Technical Implementation</strong><br>
+                    <li><strong>6. Technical implementation</strong><br>
                         I built the full multiplayer system in Unity using Netcode for GameObjects (NGO), with a Python
                         REST backend for AI
                         requests and database logging, and a PostgreSQL database for granular game event storage.
-                        <div class="detail-cover">
                             <div class="img-wrapper">
                                 <img src="../images/architektura.png" alt="architektura" />
                             </div>
-                        </div>
                     </li>
                 
-                    <li><strong>7. Experimental Study</strong><br>
+                    <li><strong>7. Experimental study</strong><br>
                         I designed and ran a remote moderated controlled experiment with 60 participants, comparing the
                         game against a text-based
-                        control group. Developed all measurement instruments (pre-test, post-test, delayed post-test),
+                        control group. I developed all measurement instruments (pre-test, post-test, delayed post-test),
                         conducted statistical
                         analysis in Python, and wrote up the results for publication.
+
+                        <br><br>
+                            <div class="img-wrapper">
+                                <img src="../images/procedure1.png" alt="procedure" />
+                            </div>
+                        <br>
                     </li>
                 
                     <li><strong>BONUS: NPC sprites</strong><br>
@@ -202,8 +204,7 @@
                         <p>
                             Most of the graphic assets (UI, characters) were created by us specifically for this game
                             using <b class="bold-underline">Aseprite</b>, a program that
-                            allows for the creation of pixel art.
-                            For each character, we created several facial expressions representing different moods. A
+                            allows for the creation of pixel art. A
                             complete overview of the
                             expressions for all NPCs is shown in the images below.
                         </p>
@@ -239,12 +240,10 @@
 
                 <h2>✨ SHOWCASE</h2>
                 <p>
-                    The video presents the main features of the prototype: SMART sorting, photo-based ingredient
-                    recognition, and meal
-                    plan generation.
+                    The video presents the main flow of the game: tutorial, logging into the game, and then one turn for each player.
                 </p>
                 <div class="detail-cover">
-                    <video src="../images/Magyarova_obhajoba.mp4" controls></video>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/7IpUPYo3u0Y?si=KzF7EYh9zGVKwJam" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
 
                 <h2>✨ WHAT DID I LEARN?</h2>
@@ -255,19 +254,28 @@
                     study rigorous enough to produce publishable results.
                 </p>
                 <p>
-                    If I were to revisit it, I would add a minimum NPC text display time from day one, and design the delayed retention test
+                    If I were to revisit it, I would design the delayed retention test
                     to be harder. The most rewarding part was seeing that the game actually worked — players genuinely learned more than
                     readers did.
                 </p>
 
                 <h2>✨ DOCUMENTS</h2>
-                Click to view detailed PDF report of this project.
 
                 <div class="reports-grid">
                     <a class="report-btn" href="resources/DP.pdf" target="_blank">
                         <div class="report-emoji">📖</div>
                         <div class="report-content">
                             <div class="report-title">Master's thesis document</div>
+                            <div class="report-desc">
+                                Theoretical and psychological foundations, solution design, implementation, study procedure, evaluation, and more.
+                            </div>
+                        </div>
+                    </a>
+
+                    <a class="report-btn" href="resources/Magyarova_obhajoba.pdf" target="_blank">
+                        <div class="report-emoji">📖</div>
+                        <div class="report-content">
+                            <div class="report-title">Master's thesis presentation</div>
                             <div class="report-desc">
                                 Theoretical and psychological foundations, solution design, implementation, study procedure, evaluation, and more.
                             </div>
@@ -290,7 +298,7 @@
                     style="margin-top: 32px; padding: 16px; background: var(--pink-light); border-radius: 12px; border: 1px solid var(--pink-mid);">
                     <div style="font-size: 12px; color: var(--text-light); margin-bottom: 8px; font-weight: 700;">🔗
                         LINKS</div>
-                    <a href="https://github.com/xhusarova/PMNIS_projekt" target="_blank" rel="noopener noreferrer"
+                    <a href="https://github.com/allky/Multiplayer-game" target="_blank" rel="noopener noreferrer"
                         style="color: var(--rose); font-size: 13px; display:block; margin-bottom:6px;">→ GitHub
                         repository</a>
                 </div>

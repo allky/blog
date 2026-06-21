@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>📊 EnergyDataHub - Dashboards</title>
+    <title>📊 EnergyDataHub - Dashboard system</title>
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
@@ -24,13 +24,13 @@
 
             <a href="../projekty.html" class="back-link">← back to projects</a>
 
-            <h1>📊 EnergyDataHub - Dashboards</h1>
+            <h1>📊 EnergyDataHub - Dashboard system</h1>
 
             <div class="detail-meta">
                 <span class="tag">🎨 UI/UX</span>
                 <span class="tag">🎮 Game Development</span>
                 <span class="tag">🖌️ Digital Art</span>
-                <span class="tag">📅 may 2026</span>
+                <span class="tag">📅 jun 2025</span>
                 <span class="tag">🏫 School Project</span>
             </div>
 
@@ -44,7 +44,6 @@
 
                 <h2>✨ ABOUT PROJECT</h2>
                 <p>
-
                     This project was developed as a team project during my Master's studies at FIIT STU, in collaboration with <b class="bold-underline">SEPS, a.s.</b>
                     (Slovak electricity transmission system operator). I worked on the project as a team of six with my classmates <b class="bold-underline">Juraj,
                     Lenka, Patrik, Michal, and Martin ♡</b>.
@@ -52,7 +51,7 @@
                 <p>
                     The goal was to design and implement <b class="bold-underline">EnergyDataHub</b> — a dashboard system for visualizing real-time and historical
                     electricity data in Slovakia. The dashboards run on Raspberry Pi devices connected to the SEPS internal network and
-                    display live energy metrics such as cross-border power transfers, generation by source, and system load. All of the data we used and are presented here, is <b class="bold-underline">publicly available</b>.
+                    display live energy metrics (on multiple TVs) such as cross-border power transfers, generation by source, and system load. All of the data we used and are presented here, is <b class="bold-underline">publicly available</b>.
                 </p>
 
                 <h2>✨ WHAT WE DID</h2>
@@ -62,47 +61,46 @@
                 </p>
                 <ul>
                     <li><strong>1. Data pipeline</strong><br>
-                        Built an automated data ingestion system with two cron jobs running in Docker: an SFTP connector (every 3
+                        We built an automated data ingestion system with two cron jobs running in Docker: an SFTP connector (every 3
                         minutes) and a
                         DAMAS scraper (every hour). Both always sync from the last known database record, so no data is lost after
                         outages.
+
+                        <div class="detail-cover">
+                        <div class="img-wrapper">
+                            <img src="../images/arch.png" alt="architektura" />
+                        </div>
+                    </div>
                 
                     <li><strong>2. Database</strong><br>
-                        Used TimescaleDB (PostgreSQL extension) for time-series data storage with configurable archival depth and
+                        We used TimescaleDB (PostgreSQL extension) for time-series data storage with configurable archival depth and
                         automatic
                         deletion of expired records.
                     </li>
                 
                     <li><strong>3. Dashboard</strong><br>
-                        Built in Grafana with two operating modes: Kiosk mode (auto-cycling dashboards, no user input needed) and
+                        We built dashboards in Grafana with two operating modes: Kiosk mode (auto-cycling dashboards, no user input needed) and
                         Presentation
                         mode (manual navigation via IR remote control using FLIRC).
                     </li>
                 
                     <li><strong>4. Map visualization</strong><br>
-                        Custom React application displaying real-time cross-border power flows on an interactive SVG map of Slovakia.
+                        We created custom React application displaying real-time cross-border power flows on an interactive SVG map of Slovakia. This map was later integrated into Grafana as one of the dashboards.
+                        <div class="detail-cover">
+                        <video autoplay loop muted playsinline src="../images/seps.mp4" type="video/mp4"></video>
+                    </div>
                     </li>
                 
                     <li><strong>5. Documentation</strong><br>
-                        Wrote analyses, installation guides, user manuals, and acceptance testing reports.
+                        We wrote analyses, installation guides, user manuals, and acceptance testing reports.
                     </li>
-
-                    <div class="detail-cover">
-                        <div class="img-wrapper">
-                            <img src="../images/arch.png" alt="architektura" />
-                        </div>
-                    </div>
-
-                    <div class="detail-cover">
-                        <video autoplay loop muted playsinline src="../images/seps.mp4" type="video/mp4"></video>
-                    </div>
                 
                 </ul>
 
 
                 <h2>✨ WHAT DID I LEARN?</h2>
                 <p>
-                    This was my first project working directly with a real corporate client and real operational data. I learned how
+                    I learned how
                     different the constraints are when you're building for an internal enterprise environment — reliability and fault
                     tolerance matter a lot more than in a student project. The most interesting challenge was making the data pipeline
                     robust enough that a network outage wouldn't cause gaps in the historical record.
@@ -113,7 +111,7 @@
                 </p>
 
                 <h2>✨ DOCUMENTS</h2>
-                Click to view PDF presentation presented to stakeholder.
+                Click to view a PDF of the presentation presented to stakeholder.
 
                 <div class="reports-grid">
                     <a class="report-btn" href="resources/SEPS_presentation.pdf" target="_blank">

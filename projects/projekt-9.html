@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="sk">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🧠 Neural Network from Scratch: Fashion MNIST Classification</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
+</head>
+
+<body>
+
+    <div class="browser-frame">
+
+        <!-- Browser chrome -->
+        <div class="browser-chrome">
+            <div class="url-bar">🌸🌸🌸</div>
+        </div>
+
+        <!-- Project detail -->
+        <div class="project-detail">
+
+            <a href="../projekty.html" class="back-link">← back to projects</a>
+
+            <h1>🧠 Neural Network from Scratch: Fashion MNIST Classification</h1>
+
+            <div class="detail-meta">
+                <span class="tag">🧬 Deep learning</span>
+                <span class="tag">📅 December 2024</span>
+                <span class="tag">🏫 School Project</span>
+            </div>
+
+            <div class="detail-cover">
+                <div class="img-wrapper">
+                    <img src="../images/mnist.png" alt="mnist" />
+                </div>
+            </div>
+
+            <div class="detail-body">
+
+                <h2>✨ ABOUT PROJECT</h2>
+
+                <p>
+                    This project was developed as part of the <b class="bold-underline">MATHAI (Mathematics for AI)</b> course during my studies at FIIT STU. The goal was to design and implement a 
+                    <b class="bold-underline">multilayer neural network from scratch</b> — without using any deep learning frameworks like PyTorch or TensorFlow — capable of classifying images from the 
+                    <b class="bold-underline">Fashion MNIST</b> dataset into 10 clothing categories, achieving at least 50% accuracy.
+                </p>
+
+
+                <h2>✨ WHAT I DID</h2>
+                <p>
+                    I worked through the full pipeline of building and training a neural network by hand, from data preprocessing to final evaluation.
+                </p>
+                <ul>
+                    <li><strong>1. Data Preprocessing</strong><br>
+                        The Fashion MNIST dataset (70,000 grayscale 28×28 images) was loaded directly from Kaggle as .csv files. Pixel values were <b class="bold-underline">normalized 
+                        to the 0–1 range</b> by dividing by 255, and images were <b class="bold-underline">transposed into column vectors</b> of 784 values to serve as model inputs.
+
+                    </li>
+
+                    <li><strong>2. Model Architecture</strong><br>
+                        The network architecture is <b class="bold-underline">fully configurable at runtime</b> — number of hidden layers and neuron counts can be redefined. 
+                        After experimentation, the optimal setup was determined to be <b class="bold-underline">3 hidden layers with 128, 64, and 32 neurons</b> respectively, with 
+                        a 784-dimensional input layer and a 10-class output layer.
+                        
+
+                        <div style="
+                            background: #fff0f6;
+                            border: 2px solid #ffb3d1;
+                            border-radius: 12px;
+                            padding: 20px;
+                            font-family: 'Fira Code', monospace;
+                            font-size: 13px;
+                            overflow-x: auto;
+                            box-shadow: 0 4px 12px rgba(255, 182, 193, 0.2);
+                        ">
+
+<pre style="margin:0; color:#4a4a4a;">
+<span style="color:#d63384; font-weight:bold;">class</span> NeuralNetwork:
+    <span style="color:#d63384; font-weight:bold;">def</span> __init__(self, layers):
+        self.layers = layers
+        self.num_layers = len(layers)
+        
+        <span style="color:#6c757d;"># initialization</span>
+        self.weights = []
+        self.biases = []
+        <span style="color:#d63384; font-weight:bold;">for</span> i <span style="color:#d63384; font-weight:bold;">in</span> range(self.num_layers - 1):
+            self.weights.append(np.random.randn(layers[i+1], layers[i]) * np.sqrt(2. / layers[i]))
+            self.biases.append(np.random.randn(layers[i+1], 1) * 0.01)
+
+    <span style="color:#d63384; font-weight:bold;">def</span> forward(self, X):
+        self.activations = [X]
+        self.z_values = []
+        
+        <span style="color:#d63384; font-weight:bold;">for</span> i <span style="color:#d63384; font-weight:bold;">in</span> range(self.num_layers - 2):
+            Z = np.dot(self.weights[i], self.activations[-1]) + self.biases[i]
+            self.z_values.append(Z)
+            A = relu(Z)
+            self.activations.append(A)
+        
+        Z_final = np.dot(self.weights[-1], self.activations[-1]) + self.biases[-1]
+        self.z_values.append(Z_final)
+        A_final = softmax(Z_final)
+        self.activations.append(A_final)
+        <span style="color:#d63384; font-weight:bold;">return</span> A_final
+
+    <span style="color:#d63384; font-weight:bold;">def</span> backward(self, X, y, learning_rate):
+        batch_size = X.shape[1]
+        dZ = self.activations[-1] - y
+        
+        <span style="color:#d63384; font-weight:bold;">for</span> i <span style="color:#d63384; font-weight:bold;">in</span> range(self.num_layers - 3, -1, -1):
+            dA = np.dot(self.weights[i+1].T, dZ)
+            dZ = dA * relu_derivative(self.z_values[i])
+            
+            dW = np.dot(dZ, self.activations[i].T) / batch_size
+            db = np.sum(dZ, axis=1, keepdims=True) / batch_size
+            
+            self.weights[i] -= learning_rate * dW
+            self.biases[i] -= learning_rate * db
+</pre>
+
+                        </div>
+
+
+
+                    </li>
+
+                    <li><strong>3. Forward Pass & Loss Function</strong><br>
+                        Inputs pass through hidden layers using the ReLU activation function, computing linear combinations of weights, activations, and biases 
+                        <b class="bold-underline"><code>(Z = W * A + b)</code></b>. The output layer uses <b class="bold-underline">softmax</b> to normalize values into class probabilities. Loss is computed using <b class="bold-underline">cross-entropy</b>, 
+                        comparing predicted probabilities against one-hot encoded ground truth labels.
+
+
+                    <li><strong>4. Backpropagation</strong><br>
+                        Gradients of the cross-entropy loss are propagated backwards through the network. At each layer, the <b class="bold-underline">ReLU derivative</b> is applied and 
+                        weights and biases are updated via <b class="bold-underline">gradient descent</b>. This process repeats across all training epochs.
+                    </li>
+
+                    <li><strong>5. Training & Hyperparameter Tuning</strong><br>
+                        Training began with a simple single-hidden-layer baseline on a small subset of data. Through experimentation, 
+                        <b class="bold-underline">ReLU outperformed sigmoid</b> as an activation function, and <b class="bold-underline">He initialization</b> significantly improved accuracy. 
+                        The final configuration uses <b class="bold-underline"><code>learning_rate = 0.01</code></b> with early stopping (<b class="bold-underline"><code>patience = 20, min_delta = 0.001</code></b>) to prevent overfitting.
+                    </li>
+                </ul>
+
+                <h2>✨ WHAT DID I LEARN?</h2>
+                <p>
+                    This project gave me a deep understanding of how neural networks actually work under the hood — not just conceptually, 
+                    but mathematically and in code. Implementing forward and backward propagation from scratch forced me to truly understand every step, 
+                    from weight initialization and activation functions to gradient flow and loss computation.
+                </p>
+                <p>
+                    The most valuable insight was seeing how much small design choices matter. Switching from sigmoid to ReLU, applying He initialization, and adding early stopping each improved accuracy by a few percent — small changes, but meaningful ones. 
+                    It reinforced that building a solid model is as much about thoughtful iteration as it is about the math.
+                </p>
+
+                <h2>✨ DOCUMENTS</h2>
+
+                <div class="reports-grid">
+
+                    <a class="report-btn" href="resources/MATHAI_documentation.pdf" target="_blank">
+                        <div class="report-emoji">📖</div>
+                        <div class="report-content">
+                            <div class="report-title">PDF documentation</div>
+                            <div class="report-desc">
+                                A complete report of what we did.
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+
+                <h2>✨ TOOLS</h2>
+                <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px;">
+                    <span class="tag">Python</span>
+                    <span class="tag">NumPy</span>
+                    <span class="tag">Jupyter Notebook</span>
+                    <!-- pridaj/uber podľa projektu -->
+                </div>
+
+                <div
+                    style="margin-top: 32px; padding: 16px; background: var(--pink-light); border-radius: 12px; border: 1px solid var(--pink-mid);">
+                    <div style="font-size: 12px; color: var(--text-light); margin-bottom: 8px; font-weight: 700;">🔗
+                        LINKS</div>
+                    <a href="https://github.com/allky/Neural-network-from-scratch" target="_blank" rel="noopener noreferrer"
+                        style="color: var(--rose); font-size: 13px; display:block; margin-bottom:6px;">→ GitHub
+                        repository</a>
+
+                    <a href="https://www.kaggle.com/datasets/zalando-research/fashionmnist" target="_blank" rel="noopener noreferrer"
+                        style="color: var(--rose); font-size: 13px; display:block; margin-bottom:6px;">→ Dataset</a>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="site-footer">
+            ♡ made with love &amp; too much coffee ♡
+        </div>
+
+    </div>
+
+</body>
+
+</html>

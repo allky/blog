@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="sk">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🔍 Manga search engine</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
+</head>
+
+<body>
+
+    <div class="browser-frame">
+
+        <!-- Browser chrome -->
+        <div class="browser-chrome">
+            <div class="url-bar">🌸🌸🌸</div>
+        </div>
+
+        <!-- Project detail -->
+        <div class="project-detail">
+
+            <a href="../projekty.html" class="back-link">← back to projects</a>
+
+            <h1>🔍 Manga search engine</h1>
+
+            <div class="detail-meta">
+                <span class="tag">🔍 Information retrieval</span>
+                <span class="tag">⛏️ Web scraping</span>
+                <span class="tag">🗣️ Natural language processing</span>
+                <span class="tag">📅 May 2024</span>
+                <span class="tag">🏫 School Project</span>
+            </div>
+
+            <div class="detail-cover">
+                <div class="img-wrapper">
+                    <img src="../images/vinf_cover.png" alt="vinf_cover" />
+                </div>
+            </div>
+
+            <div class="detail-body">
+
+                <h2>✨ ABOUT PROJECT</h2>
+                <ul>
+                    <li><strong>1. Crawling & Scraping</strong><br>
+                        I built a <b class="bold-underline">crawler</b> that respects <b class="bold-underline">robots.txt</b>
+                        and navigates through 18 manga genre categories on MyAnimeList, collecting up to 5 pages of links per
+                        category. The <b class="bold-underline">scraper</b> then downloaded the HTML of each manga page into
+                        individual <code>.txt</code> files, resulting in a folder of <b class="bold-underline">5,639 scraped pages</b>.
+                    </li>
+
+                    <li><strong>2. Parsing</strong><br>
+                        A custom <b class="bold-underline">regex-based parser</b> extracted structured fields from the raw HTML —
+                        including title, genres, authors, serialization, volumes, chapters, status, publication dates, and synopsis —
+                        and saved everything into a single <b class="bold-underline">manga_results.csv</b>. Fields like authors
+                        and publication date ranges required additional handling beyond simple regex matching.
+                    </li>
+
+                    <li><strong>3. Wikipedia Enrichment with PySpark</strong><br>
+                        To enrich the dataset, I used <b class="bold-underline">PySpark</b> to process
+                        <b class="bold-underline">20 Wikipedia XML dump files</b>. Pages were first filtered using relevance
+                        signals (infobox templates, keyword presence), then further processed to extract
+                        <b class="bold-underline">publisher names and main characters</b> using multiple regex patterns.
+                        The extracted data was joined back to the original dataset by title, enriching approximately
+                        <b class="bold-underline">360 out of 5,600 records</b>.
+                    </li>
+
+                    <li><strong>4. Indexing — Two Approaches</strong><br>
+                        I implemented indexing in two ways. The <b class="bold-underline">manual indexer</b> (my_indexer.py)
+                        preprocesses all text through tokenization, stopword removal, and lemmatization, then computes
+                        <b class="bold-underline">TF, IDF, and TF-IDF</b> for every term across all documents, storing the
+                        result in an <b class="bold-underline">inverted index CSV</b>. The
+                        <b class="bold-underline">Elasticsearch indexer</b> (indexer.py) preprocesses and loads the same data
+                        into a local ES instance, with a concatenated field across all attributes to support phrase search.
+                    </li>
+
+                    <li><strong>5. Search</strong><br>
+                        Both searchers support <b class="bold-underline">boolean queries with AND / OR / NOT operators</b>.
+                        The manual searcher ranks results by <b class="bold-underline">accumulated TF-IDF score</b>.
+                        The Elasticsearch searcher additionally supports
+                        <b class="bold-underline">field-specific filtering, phrase search, and numeric range queries</b>
+                        (e.g. <code>title: girl AND volumes: =10</code>).
+
+                        <br>
+                        <div class="img-wrapper">
+                            <img src="../images/vinf.png" alt="vinf" />
+                        </div>
+                        <br>
+                    </li>
+                </ul>
+
+                <h2>✨ EVALUATION</h2>
+                <p>
+                    The Elasticsearch searcher was evaluated on <b class="bold-underline">5 queries</b> using
+                    Precision, Recall, and F1 against a gold standard built from MyAnimeList search results.
+                    <b class="bold-underline">Specific field queries</b> (like <code>genre: comedy AND title: city</code>
+                    or <code>title: girl AND volumes: =10</code>) achieved perfect scores — Precision, Recall,
+                    and F1 all at <b class="bold-underline">1.0</b>. Broader <b class="bold-underline">phrase queries</b>
+                    performed worse, since MyAnimeList boosts title matches while the system searched across all
+                    concatenated fields, leading to mismatched ranking.
+                </p>
+
+                <h2>✨ WHAT DID I LEARN?</h2>
+                <p>
+                    This project gave me hands-on experience with the full information retrieval pipeline —
+                    from ethical web crawling and regex-based extraction to building both a manual and a
+                    production-grade search index. Working with PySpark on large XML dumps taught me how to
+                    think about filtering and efficiency at scale, where processing every document fully would
+                    be impractical.
+                </p>
+                <p>
+                    The evaluation phase was especially valuable — comparing my results to a gold standard made
+                    it clear how much ranking strategy matters, and why searching a concatenated field behaves
+                    very differently from a title-boosted system like MyAnimeList. It was a good reminder that
+                    correct results and well-ranked results are two different problems.
+                </p>
+
+                <h2>✨ DOCUMENTS</h2>
+
+                <div class="reports-grid">
+
+                    <a class="report-btn" href="resources/VINF_evaluation.pdf" target="_blank">
+                        <div class="report-emoji">📖</div>
+                        <div class="report-content">
+                            <div class="report-title">PDF - Report on evaluation</div>
+                            <div class="report-desc">
+                                A complete report on searcher evaluation.
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+
+                <h2>✨ TOOLS</h2>
+                <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px;">
+                    <span class="tag">Python</span>
+                    <span class="tag">Elasticsearch</span>
+                    <span class="tag">PySpark</span>
+                    <span class="tag">Regex</span>
+                    <span class="tag">Wikipedia dumps</span>
+                    <!-- pridaj/uber podľa projektu -->
+                </div>
+
+                <div
+                    style="margin-top: 32px; padding: 16px; background: var(--pink-light); border-radius: 12px; border: 1px solid var(--pink-mid);">
+                    <div style="font-size: 12px; color: var(--text-light); margin-bottom: 8px; font-weight: 700;">🔗
+                        LINKS</div>
+                    <a href="https://github.com/allky/Manga-search-engine" target="_blank" rel="noopener noreferrer"
+                        style="color: var(--rose); font-size: 13px; display:block; margin-bottom:6px;">→ GitHub
+                        repository</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="site-footer">
+            ♡ made with love &amp; too much coffee ♡
+        </div>
+
+    </div>
+
+</body>
+
+</html>

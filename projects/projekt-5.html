@@ -80,27 +80,29 @@
                     
                     <li><strong>3. Data Preprocessing & Power Analysis</strong><br>
                         We handled the right-skewed distribution of the symptom data by applying a log transformation <code>log1p(x)</code>.
-                        Performed a <b class="bold-underline">power analysis</b> confirming that our balanced dataset (<b
+                        We performed a <b class="bold-underline">power analysis</b> confirming that our balanced dataset (<b
                             class="bold-underline">625 samples per disease</b>) heavily exceeded the standard guidelines for statistical
                         reliability.
                     </li>
                     
                     <li><strong>4. Requirements Analysis & Model Selection</strong><br>
-                        Created a comprehensive <b class="bold-underline">comparison matrix</b> evaluating Logistic Regression, SVM, and
-                        Random Forest against our data characteristics. We selected <b class="bold-underline">Random Forest</b> for its
+                        Based on a comprehensive <b class="bold-underline">comparison matrix</b> evaluating Logistic Regression, SVM, and
+                        Random Forest against our data characteristics, we decided to select <b class="bold-underline">Random Forest</b> for its
                         robustness against multicollinearity and ability to capture non-linear, <b class="bold-underline">overlapping
-                            symptom patterns</b> without strict normality assumptions.
+                        symptom patterns</b> without strict normality assumptions. We went with <b class="bold-underline">XGBoost</b> as our second model, as we were obliged to 
+                        select one model that was not introduced throughout the lectures. This model was widely used in current state of the art, as we found out 
+                        during technical literature review.
                     </li>
                     
                     <li><strong>5. Model Training & Hyperparameter Tuning</strong><br>
-                        Implemented <b class="bold-underline">stratified sampling</b> for an <b class="bold-underline">80/20 train/test
-                            split</b>. Conducted a comprehensive <b class="bold-underline">grid search</b> to optimize the Random Forest
+                        We implemented <b class="bold-underline">stratified sampling</b> for an <b class="bold-underline">80/20 train/test
+                            split</b>. We conducted a comprehensive <b class="bold-underline">grid search</b> to optimize the Random Forest
                         parameters (<code>mtry</code>, <code>ntree</code>, <code>nodesize</code>, <code>maxnodes</code>) using the <b
                             class="bold-underline">Macro F1 Score</b> as the primary metric to ensure balanced class performance.
                     </li>
                     
                     <li><strong>6. Threshold Optimization & Evaluation</strong><br>
-                        Evaluated both Random Forest and XGBoost using <b class="bold-underline">confusion matrices</b> and multiclass <b
+                        We evaluated both Random Forest and XGBoost using <b class="bold-underline">confusion matrices</b> and multiclass <b
                             class="bold-underline">ROC/AUC curves</b>. To address misclassifications caused by overlapping respiratory
                         symptoms, we implemented class-specific <b class="bold-underline">probability threshold tuning</b> to optimize the
                         balance between sensitivity and precision.
@@ -116,7 +118,7 @@
                     matrices and ROC curves for both the baseline Random Forest and XGBoost variations.
                 </p>
                 <div class="detail-cover">
-                    <video src="../images/OZNAL_video.mp4" controls></video>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/lD70g9x7Ulc?si=In19TFhkoFaestpl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
 
                 <p>
@@ -138,7 +140,6 @@
                 </p>
 
                 <h2>✨ DOCUMENTS</h2>
-                Click to view a PDF summary of this project.
 
                 <div class="reports-grid">
 
@@ -168,7 +169,7 @@
                     style="margin-top: 32px; padding: 16px; background: var(--pink-light); border-radius: 12px; border: 1px solid var(--pink-mid);">
                     <div style="font-size: 12px; color: var(--text-light); margin-bottom: 8px; font-weight: 700;">🔗
                         LINKS</div>
-                    <a href="https://github.com/xhusarova/PMNIS_projekt" target="_blank" rel="noopener noreferrer"
+                    <a href="https://github.com/allky/Multi-class-disease-classification-based-on-symptoms" target="_blank" rel="noopener noreferrer"
                         style="color: var(--rose); font-size: 13px; display:block; margin-bottom:6px;">→ GitHub
                         repository</a>
 
